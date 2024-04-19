@@ -1,15 +1,14 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Heart Rate Varability (HRV) &#8212; NeuroKit2 0.2.8 documentation</title>
+    <title>Heart Rate Variability (HRV) &#8212; NeuroKit2 0.2.8 documentation</title>
   
   
   
@@ -19,37 +18,34 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
-  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/documentation_options.js?v=a0cf2451"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'examples/ecg_hrv/ecg_hrv';</script>
-    <link rel="shortcut icon" href="../../_static/icon.ico"/>
+    <link rel="icon" href="../../_static/icon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Extract and Visualize Individual Heartbeats" href="../ecg_heartbeats/ecg_heartbeats.html" />
@@ -63,10 +59,9 @@
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -107,11 +102,14 @@
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -126,6 +124,7 @@
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../../index.html">
@@ -144,7 +143,18 @@
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Menu</span></p>
 <ul class="current nav bd-sidenav">
@@ -156,7 +166,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../bio_eventrelated/bio_eventrelated.html">Event-related Analysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bio_intervalrelated/bio_intervalrelated.html">Interval-related Analysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bio_custom/bio_custom.html">Customize your Processing Pipeline</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Heart Rate Varability (HRV)</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Heart Rate Variability (HRV)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ecg_heartbeats/ecg_heartbeats.html">Extract and Visualize Individual Heartbeats</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ecg_delineate/ecg_delineate.html">Locate P, Q, S and T waves in ECG</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ecg_edr/ecg_edr.html">ECG-Derived Respiration (EDR)</a></li>
@@ -386,6 +396,7 @@
 </button>
 
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
@@ -395,6 +406,7 @@ document.write(`
   </button>
 `);
 </script>
+
 
 <script>
 document.write(`
@@ -416,7 +428,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Heart Rate Varability (HRV)</h1>
+    <h1>Heart Rate Variability (HRV)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -441,14 +453,14 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
-  <section id="heart-rate-varability-hrv">
-<h1>Heart Rate Varability (HRV)<a class="headerlink" href="#heart-rate-varability-hrv" title="Permalink to this heading">#</a></h1>
+  <section id="heart-rate-variability-hrv">
+<h1>Heart Rate Variability (HRV)<a class="headerlink" href="#heart-rate-variability-hrv" title="Link to this heading">#</a></h1>
 <p>NeuroKit2 is the most comprehensive package when it comes to HRV indices, and this example shows how to use NeuroKit2 to compute heart rate variability (HRV) indices in the time-, frequency-, and non-linear domain.</p>
 <p>For a comprehensive review of the most up-to-date HRV indices, a discussion of their significance in psychology, and a step-by-step guide for HRV analysis using <strong>NeuroKit2</strong>, the <a class="reference external" href="https://doi.org/10.3390/s21123998">Heart Rate Variability in Psychology: A Review of HRV Indices and an Analysis Tutorial</a> paper is a good place to start.</p>
 <section id="compute-hrv-features">
-<h2>Compute HRV features<a class="headerlink" href="#compute-hrv-features" title="Permalink to this heading">#</a></h2>
+<h2>Compute HRV features<a class="headerlink" href="#compute-hrv-features" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the NeuroKit package</span>
@@ -461,7 +473,7 @@ document.write(`
 </div>
 </section>
 <section id="download-dataset">
-<h2>Download Dataset<a class="headerlink" href="#download-dataset" title="Permalink to this heading">#</a></h2>
+<h2>Download Dataset<a class="headerlink" href="#download-dataset" title="Link to this heading">#</a></h2>
 <p>First, let’s download the resting rate data (sampled at 100Hz) using <code class="docutils literal notranslate"><span class="pre">nk.data()</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -543,7 +555,7 @@ document.write(`
 <p>HRV is the temporal variation between consecutive heartbeats (<strong>RR intervals</strong>). Here, we will use <code class="docutils literal notranslate"><span class="pre">peaks</span></code> i.e. occurrences of the heartbeat peaks, as the input argument in the following HRV functions to extract the indices.</p>
 </section>
 <section id="time-domain-analysis">
-<h2>Time-Domain Analysis<a class="headerlink" href="#time-domain-analysis" title="Permalink to this heading">#</a></h2>
+<h2>Time-Domain Analysis<a class="headerlink" href="#time-domain-analysis" title="Link to this heading">#</a></h2>
 <p>First, let’s extract the time-domain indices.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -623,13 +635,13 @@ document.write(`
   </tbody>
 </table>
 <p>1 rows × 25 columns</p>
-</div></div><img alt="../../_images/dff74f35b871b599656090efc6f82c92b63173eb0b614832adfd87802e1a0bd6.png" src="../../_images/dff74f35b871b599656090efc6f82c92b63173eb0b614832adfd87802e1a0bd6.png" />
+</div></div><img alt="../../_images/b51bcd65498da2479afbd68b51d9dbdff74f9be0c743a35038bbaa394abc7c35.png" src="../../_images/b51bcd65498da2479afbd68b51d9dbdff74f9be0c743a35038bbaa394abc7c35.png" />
 </div>
 </div>
 <p>These features include the RMSSD (square root of the mean of the sum of successive differences between adjacent RR intervals), MeanNN (mean of RR intervals) so on and so forth. You can also visualize the distribution of R-R intervals by specifying <code class="docutils literal notranslate"><span class="pre">show=True</span></code> in <a class="reference external" href="https://neuropsychology.github.io/NeuroKit/functions/hrv.html#hrv-time">hrv_time()</a>.</p>
 </section>
 <section id="frequency-domain-analysis">
-<h2>Frequency-Domain Analysis<a class="headerlink" href="#frequency-domain-analysis" title="Permalink to this heading">#</a></h2>
+<h2>Frequency-Domain Analysis<a class="headerlink" href="#frequency-domain-analysis" title="Link to this heading">#</a></h2>
 <p>Now, let’s extract the frequency domain features, which involve extracting for example the spectral power density pertaining to different frequency bands. Again, you can visualize the power across frequency bands by specifying <code class="docutils literal notranslate"><span class="pre">show=True</span></code> in <a class="reference external" href="https://neuropsychology.github.io/NeuroKit/functions/hrv.html#hrv-frequency">hrv_frequency()</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -685,12 +697,12 @@ document.write(`
     </tr>
   </tbody>
 </table>
-</div></div><img alt="../../_images/6c0f997dd2ce7253d7e9c7d758939a00098d6def784e6923600ea6003fe24c47.png" src="../../_images/6c0f997dd2ce7253d7e9c7d758939a00098d6def784e6923600ea6003fe24c47.png" />
+</div></div><img alt="../../_images/4fb1b292805928d6847aa6101c17bee2213cf05359802a38a548367177b8f13c.png" src="../../_images/4fb1b292805928d6847aa6101c17bee2213cf05359802a38a548367177b8f13c.png" />
 </div>
 </div>
 </section>
 <section id="non-linear-domain-analysis">
-<h2>Non-Linear Domain Analysis<a class="headerlink" href="#non-linear-domain-analysis" title="Permalink to this heading">#</a></h2>
+<h2>Non-Linear Domain Analysis<a class="headerlink" href="#non-linear-domain-analysis" title="Link to this heading">#</a></h2>
 <p>Now, let’s compute the non-linear indices with <a class="reference external" href="https://neuropsychology.github.io/NeuroKit/functions/hrv.html#hrv-nonlinear">hrv_nonlinear()</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -769,14 +781,14 @@ document.write(`
   </tbody>
 </table>
 <p>1 rows × 56 columns</p>
-</div></div><img alt="../../_images/cf9fc1a00f81831576f48485a4b3f576ab7bdd27318a2937a2b6a34981aef871.png" src="../../_images/cf9fc1a00f81831576f48485a4b3f576ab7bdd27318a2937a2b6a34981aef871.png" />
+</div></div><img alt="../../_images/40c664d0cb23ea0f34254d240242f2b0494766360e41bf34eb0bdec046b354a6.png" src="../../_images/40c664d0cb23ea0f34254d240242f2b0494766360e41bf34eb0bdec046b354a6.png" />
 </div>
 </div>
 <p>This will produce a Poincaré plot which plots each RR interval against the next successive one.</p>
 <p>Note that there exist many more <a class="reference external" href="https://neuropsychology.github.io/NeuroKit/functions/complexity.html"><strong>complexity indices</strong></a>, that are available in NeuroKit2, and that could be applied to HRV. The <code class="docutils literal notranslate"><span class="pre">hrv_nonlinear()</span></code> function only includes the most commonly used indices.</p>
 </section>
 <section id="all-domains">
-<h2>All Domains<a class="headerlink" href="#all-domains" title="Permalink to this heading">#</a></h2>
+<h2>All Domains<a class="headerlink" href="#all-domains" title="Link to this heading">#</a></h2>
 <p>Finally, if you’d like to extract HRV indices from all three domains, you can simply input <code class="docutils literal notranslate"><span class="pre">peaks</span></code> into <a class="reference external" href="https://neuropsychology.github.io/NeuroKit/functions/hrv.html">hrv()</a>, where you can specify <code class="docutils literal notranslate"><span class="pre">show=True</span></code> to visualize the combination of plots depicting the RR intervals distribution, power spectral density for frequency domains, and the poincare scattergram.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -855,7 +867,7 @@ document.write(`
   </tbody>
 </table>
 <p>1 rows × 91 columns</p>
-</div></div><img alt="../../_images/8b72ccb43fba3015bd8dbcc97de01a3e3aff3197f0f41ed8c20862c747c7769f.png" src="../../_images/8b72ccb43fba3015bd8dbcc97de01a3e3aff3197f0f41ed8c20862c747c7769f.png" />
+</div></div><img alt="../../_images/83d13d8ea61da711642938cce16a9212e0e10befda8bcee7baeb719e6eed5eda.png" src="../../_images/83d13d8ea61da711642938cce16a9212e0e10befda8bcee7baeb719e6eed5eda.png" />
 </div>
 </div>
 </section>
@@ -870,7 +882,7 @@ document.write(`
               
               
                 <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="../bio_custom/bio_custom.html"
@@ -898,6 +910,7 @@ document.write(`
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -932,9 +945,10 @@ By <a href="https://dominiquemakowski.github.io/">Dominique Makowski</a> and the
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2020–2023.
+      © Copyright 2020–2024.
       <br/>
     
   </p>
@@ -958,8 +972,8 @@ By <a href="https://dominiquemakowski.github.io/">Dominique Makowski</a> and the
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Extract and Visualize Individual Heartbeats &#8212; NeuroKit2 0.2.8 documentation</title>
   
@@ -19,41 +18,38 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
-  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/documentation_options.js?v=a0cf2451"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'examples/ecg_heartbeats/ecg_heartbeats';</script>
-    <link rel="shortcut icon" href="../../_static/icon.ico"/>
+    <link rel="icon" href="../../_static/icon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Locate P, Q, S and T waves in ECG" href="../ecg_delineate/ecg_delineate.html" />
-    <link rel="prev" title="Heart Rate Varability (HRV)" href="../ecg_hrv/ecg_hrv.html" />
+    <link rel="prev" title="Heart Rate Variability (HRV)" href="../ecg_hrv/ecg_hrv.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -63,10 +59,9 @@
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -107,11 +102,14 @@
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -126,6 +124,7 @@
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../../index.html">
@@ -144,7 +143,18 @@
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Menu</span></p>
 <ul class="current nav bd-sidenav">
@@ -156,7 +166,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../bio_eventrelated/bio_eventrelated.html">Event-related Analysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bio_intervalrelated/bio_intervalrelated.html">Interval-related Analysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bio_custom/bio_custom.html">Customize your Processing Pipeline</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../ecg_hrv/ecg_hrv.html">Heart Rate Varability (HRV)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ecg_hrv/ecg_hrv.html">Heart Rate Variability (HRV)</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Extract and Visualize Individual Heartbeats</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ecg_delineate/ecg_delineate.html">Locate P, Q, S and T waves in ECG</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ecg_edr/ecg_edr.html">ECG-Derived Respiration (EDR)</a></li>
@@ -386,6 +396,7 @@
 </button>
 
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
@@ -395,6 +406,7 @@ document.write(`
   </button>
 `);
 </script>
+
 
 <script>
 document.write(`
@@ -443,10 +455,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section id="extract-and-visualize-individual-heartbeats">
-<h1>Extract and Visualize Individual Heartbeats<a class="headerlink" href="#extract-and-visualize-individual-heartbeats" title="Permalink to this heading">#</a></h1>
+<h1>Extract and Visualize Individual Heartbeats<a class="headerlink" href="#extract-and-visualize-individual-heartbeats" title="Link to this heading">#</a></h1>
 <p>This example can be referenced by <a class="reference external" href="https://neuropsychology.github.io/NeuroKit/cite_us.html">citing the package</a>.</p>
 <p>This example shows how to use NeuroKit to extract and visualize the QRS complexes (individual heartbeats) from an electrocardiogram (ECG).</p>
 <div class="cell docutils container">
@@ -462,7 +474,7 @@ document.write(`
 <div class="cell tag_remove-input docutils container">
 </div>
 <section id="extract-the-cleaned-ecg-signal">
-<h2>Extract the cleaned ECG signal<a class="headerlink" href="#extract-the-cleaned-ecg-signal" title="Permalink to this heading">#</a></h2>
+<h2>Extract the cleaned ECG signal<a class="headerlink" href="#extract-the-cleaned-ecg-signal" title="Link to this heading">#</a></h2>
 <p>In this example, we will use a simulated ECG signal. However, you can use any of your signal (for instance, extracted from the dataframe using the <a class="reference external" href="https://neuropsychology.github.io/NeuroKit/functions/data.html#read-acqknowledge">read_acqknowledge()</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -485,7 +497,7 @@ document.write(`
 <p>This function outputs two elements, a <em>dataframe</em> containing the different signals (raw, cleaned, etc.) and a <em>dictionary</em> containing various additional information (peaks location, …).</p>
 </section>
 <section id="extract-r-peaks-location">
-<h2>Extract R-peaks location<a class="headerlink" href="#extract-r-peaks-location" title="Permalink to this heading">#</a></h2>
+<h2>Extract R-peaks location<a class="headerlink" href="#extract-r-peaks-location" title="Link to this heading">#</a></h2>
 <p>The processing function does two important things for our purpose: 1) it cleans the signal and 2) it detects the location of the R-peaks. Let’s extract these from the output.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -505,13 +517,13 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/90c852faf3e0dbb2bbf4c8cf5fac5057ff1ca6a2577f55376d7675938a1c7c02.png" src="../../_images/90c852faf3e0dbb2bbf4c8cf5fac5057ff1ca6a2577f55376d7675938a1c7c02.png" />
+<img alt="../../_images/a0e7af2bd32a1413182ad6b1b173b4f299dc938525ecd9c71bcf98e69c17f933.png" src="../../_images/a0e7af2bd32a1413182ad6b1b173b4f299dc938525ecd9c71bcf98e69c17f933.png" />
 </div>
 </div>
 <p>Once that we know where the R-peaks are located, we can create windows of signal around them (of a length of for instance 1 second, ranging from 400 ms before the R-peak), which we can refer to as <em>epochs</em>.</p>
 </section>
 <section id="segment-the-signal-around-the-heart-beats">
-<h2>Segment the signal around the heart beats<a class="headerlink" href="#segment-the-signal-around-the-heart-beats" title="Permalink to this heading">#</a></h2>
+<h2>Segment the signal around the heart beats<a class="headerlink" href="#segment-the-signal-around-the-heart-beats" title="Link to this heading">#</a></h2>
 <p>You can now epoch all these individual heart beats, synchronized by their R peaks with the <a class="reference external" href="https://neuropsychology.github.io/NeuroKit/functions/ecg.html#ecg-segment">ecg_segment()</a> function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -521,16 +533,16 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/5cc2213828cb056ec49d862d1e5264719fb908900db8837ba1ba6b9592849011.png" src="../../_images/5cc2213828cb056ec49d862d1e5264719fb908900db8837ba1ba6b9592849011.png" />
+<img alt="../../_images/f4c79a9f25fefa4875ebd74f51c1fc840f504c43e0b9d564b6688411f714f552.png" src="../../_images/f4c79a9f25fefa4875ebd74f51c1fc840f504c43e0b9d564b6688411f714f552.png" />
 </div>
 </div>
 <p>This create a dictionary of dataframes for each ‘epoch’ (in this case, each heart beat).</p>
 </section>
 <section id="advanced-plotting">
-<h2>Advanced Plotting<a class="headerlink" href="#advanced-plotting" title="Permalink to this heading">#</a></h2>
+<h2>Advanced Plotting<a class="headerlink" href="#advanced-plotting" title="Link to this heading">#</a></h2>
 <p>This section is written for a more advanced purpose of plotting and visualizing all the heartbeats segments. The code below uses packages other than <em>NeuroKit2</em> to manually set the colour gradient of the signals and to create a more interactive experience for the user - by hovering your cursor over each signal, an annotation of the signal corresponding to the heart beat index is shown.</p>
 <section id="custom-colors-and-legend">
-<h3>Custom colors and legend<a class="headerlink" href="#custom-colors-and-legend" title="Permalink to this heading">#</a></h3>
+<h3>Custom colors and legend<a class="headerlink" href="#custom-colors-and-legend" title="Link to this heading">#</a></h3>
 <p>Here, we define a function to create the epochs. It takes in <code class="docutils literal notranslate"><span class="pre">cleaned</span></code> as the cleaned signal dataframe, and <code class="docutils literal notranslate"><span class="pre">peaks</span></code> as the array of R-peaks locations.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -577,36 +589,36 @@ document.write(`
   <tbody>
     <tr>
       <th>0</th>
-      <td>-0.209402</td>
-      <td>136</td>
+      <td>-0.189355</td>
+      <td>142</td>
       <td>1</td>
       <td>-0.300000</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>-0.203779</td>
-      <td>137</td>
+      <td>-0.183644</td>
+      <td>143</td>
       <td>1</td>
       <td>-0.295977</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>-0.198098</td>
-      <td>138</td>
+      <td>-0.177767</td>
+      <td>144</td>
       <td>1</td>
       <td>-0.291954</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>-0.192314</td>
-      <td>139</td>
+      <td>-0.171693</td>
+      <td>145</td>
       <td>1</td>
       <td>-0.287931</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>-0.186366</td>
-      <td>140</td>
+      <td>-0.165375</td>
+      <td>146</td>
       <td>1</td>
       <td>-0.283908</td>
     </tr>
@@ -691,123 +703,123 @@ document.write(`
   <tbody>
     <tr>
       <th>-0.300000</th>
-      <td>-0.209402</td>
-      <td>-0.132431</td>
-      <td>-0.138537</td>
-      <td>-0.138236</td>
-      <td>-0.129114</td>
-      <td>-0.135116</td>
-      <td>-0.143539</td>
-      <td>-0.138966</td>
-      <td>-0.139011</td>
-      <td>-0.130040</td>
+      <td>-0.189355</td>
+      <td>-0.140874</td>
+      <td>-0.142808</td>
+      <td>-0.142150</td>
+      <td>-0.130205</td>
+      <td>-0.135186</td>
+      <td>-0.128967</td>
+      <td>-0.138378</td>
+      <td>-0.136962</td>
+      <td>-0.139627</td>
       <td>...</td>
-      <td>-0.130992</td>
-      <td>-0.145322</td>
-      <td>-0.088107</td>
-      <td>-0.224269</td>
-      <td>-0.115310</td>
-      <td>-0.137523</td>
-      <td>-0.139921</td>
-      <td>-0.137711</td>
-      <td>-0.138350</td>
-      <td>-0.127701</td>
+      <td>-0.138577</td>
+      <td>-0.175396</td>
+      <td>-0.033618</td>
+      <td>-0.322328</td>
+      <td>-0.115775</td>
+      <td>-0.137219</td>
+      <td>-0.124745</td>
+      <td>-0.135923</td>
+      <td>-0.139269</td>
+      <td>-0.138515</td>
     </tr>
     <tr>
       <th>-0.295977</th>
-      <td>-0.203779</td>
-      <td>-0.131655</td>
-      <td>-0.137346</td>
-      <td>-0.136879</td>
-      <td>-0.128575</td>
-      <td>-0.134005</td>
-      <td>-0.142156</td>
-      <td>-0.138031</td>
-      <td>-0.138345</td>
-      <td>-0.129104</td>
+      <td>-0.183644</td>
+      <td>-0.139877</td>
+      <td>-0.141681</td>
+      <td>-0.141185</td>
+      <td>-0.129460</td>
+      <td>-0.134317</td>
+      <td>-0.128252</td>
+      <td>-0.137284</td>
+      <td>-0.136415</td>
+      <td>-0.138970</td>
       <td>...</td>
-      <td>-0.130273</td>
-      <td>-0.144364</td>
-      <td>-0.087022</td>
-      <td>-0.223070</td>
-      <td>-0.114813</td>
-      <td>-0.136570</td>
-      <td>-0.138502</td>
-      <td>-0.136661</td>
-      <td>-0.137125</td>
-      <td>-0.127033</td>
+      <td>-0.137810</td>
+      <td>-0.174323</td>
+      <td>-0.032951</td>
+      <td>-0.322038</td>
+      <td>-0.114994</td>
+      <td>-0.136216</td>
+      <td>-0.123542</td>
+      <td>-0.135054</td>
+      <td>-0.138185</td>
+      <td>-0.137479</td>
     </tr>
     <tr>
       <th>-0.291954</th>
-      <td>-0.198098</td>
-      <td>-0.130706</td>
-      <td>-0.135959</td>
-      <td>-0.135418</td>
-      <td>-0.127945</td>
-      <td>-0.132742</td>
-      <td>-0.140563</td>
-      <td>-0.136917</td>
-      <td>-0.137587</td>
-      <td>-0.128119</td>
+      <td>-0.177767</td>
+      <td>-0.138641</td>
+      <td>-0.140385</td>
+      <td>-0.140048</td>
+      <td>-0.128584</td>
+      <td>-0.133347</td>
+      <td>-0.127412</td>
+      <td>-0.136041</td>
+      <td>-0.135735</td>
+      <td>-0.138165</td>
       <td>...</td>
-      <td>-0.129439</td>
-      <td>-0.143305</td>
-      <td>-0.085758</td>
-      <td>-0.221682</td>
-      <td>-0.114230</td>
-      <td>-0.135443</td>
-      <td>-0.136849</td>
-      <td>-0.135402</td>
-      <td>-0.135751</td>
-      <td>-0.126301</td>
+      <td>-0.136862</td>
+      <td>-0.173154</td>
+      <td>-0.032144</td>
+      <td>-0.321540</td>
+      <td>-0.114082</td>
+      <td>-0.135101</td>
+      <td>-0.122252</td>
+      <td>-0.134057</td>
+      <td>-0.136957</td>
+      <td>-0.136246</td>
     </tr>
     <tr>
       <th>-0.287931</th>
-      <td>-0.192314</td>
-      <td>-0.129552</td>
-      <td>-0.134322</td>
-      <td>-0.133820</td>
-      <td>-0.127187</td>
-      <td>-0.131306</td>
-      <td>-0.138716</td>
-      <td>-0.135565</td>
-      <td>-0.136715</td>
-      <td>-0.127039</td>
+      <td>-0.171693</td>
+      <td>-0.137126</td>
+      <td>-0.138850</td>
+      <td>-0.138674</td>
+      <td>-0.127535</td>
+      <td>-0.132240</td>
+      <td>-0.126418</td>
+      <td>-0.134602</td>
+      <td>-0.134865</td>
+      <td>-0.137173</td>
       <td>...</td>
-      <td>-0.128454</td>
-      <td>-0.142098</td>
-      <td>-0.084273</td>
-      <td>-0.220051</td>
-      <td>-0.113501</td>
-      <td>-0.134071</td>
-      <td>-0.134881</td>
-      <td>-0.133866</td>
-      <td>-0.134209</td>
-      <td>-0.125447</td>
+      <td>-0.135683</td>
+      <td>-0.171876</td>
+      <td>-0.031161</td>
+      <td>-0.320764</td>
+      <td>-0.112993</td>
+      <td>-0.133854</td>
+      <td>-0.120821</td>
+      <td>-0.132883</td>
+      <td>-0.135541</td>
+      <td>-0.134778</td>
     </tr>
     <tr>
       <th>-0.283908</th>
-      <td>-0.186366</td>
-      <td>-0.128159</td>
-      <td>-0.132360</td>
-      <td>-0.132035</td>
-      <td>-0.126260</td>
-      <td>-0.129664</td>
-      <td>-0.136552</td>
-      <td>-0.133908</td>
-      <td>-0.135696</td>
-      <td>-0.125791</td>
+      <td>-0.165375</td>
+      <td>-0.135291</td>
+      <td>-0.136985</td>
+      <td>-0.136974</td>
+      <td>-0.126268</td>
+      <td>-0.130951</td>
+      <td>-0.125239</td>
+      <td>-0.132896</td>
+      <td>-0.133738</td>
+      <td>-0.135957</td>
       <td>...</td>
-      <td>-0.127272</td>
-      <td>-0.140685</td>
-      <td>-0.082508</td>
-      <td>-0.218105</td>
-      <td>-0.112543</td>
-      <td>-0.132369</td>
-      <td>-0.132500</td>
-      <td>-0.131974</td>
-      <td>-0.132467</td>
-      <td>-0.124399</td>
+      <td>-0.134207</td>
+      <td>-0.170460</td>
+      <td>-0.029968</td>
+      <td>-0.319630</td>
+      <td>-0.111668</td>
+      <td>-0.132447</td>
+      <td>-0.119183</td>
+      <td>-0.131471</td>
+      <td>-0.133878</td>
+      <td>-0.133023</td>
     </tr>
   </tbody>
 </table>
@@ -835,12 +847,12 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/79d3b5dacd97f9e3ce4fd29d297153bb24be6d91d50cbdbc33132794c065b592.png" src="../../_images/79d3b5dacd97f9e3ce4fd29d297153bb24be6d91d50cbdbc33132794c065b592.png" />
+<img alt="../../_images/d4b63a7dd159b574614ae29fee75389330ebd32a2d2a22c47a9f9dfc0feb40dd.png" src="../../_images/d4b63a7dd159b574614ae29fee75389330ebd32a2d2a22c47a9f9dfc0feb40dd.png" />
 </div>
 </div>
 </section>
 <section id="interactivity">
-<h3>Interactivity<a class="headerlink" href="#interactivity" title="Permalink to this heading">#</a></h3>
+<h3>Interactivity<a class="headerlink" href="#interactivity" title="Link to this heading">#</a></h3>
 <p>This section of the code incorporates the aesthetics and interactivity of the plot produced. Unfortunately, the interactivity is not active in this example but it should work in your console! As you hover your cursor over each signal, annotation of the channel that produced it is shown. You will need to uncomment the code below.</p>
 <p><em>Note: you need to install the <code class="docutils literal notranslate"><span class="pre">mplcursors</span></code> package for the interactive part (<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">mplcursors</span></code>)</em></p>
 <div class="cell docutils container">
@@ -872,7 +884,7 @@ document.write(`
               
               
                 <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="../ecg_hrv/ecg_hrv.html"
@@ -880,7 +892,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Heart Rate Varability (HRV)</p>
+        <p class="prev-next-title">Heart Rate Variability (HRV)</p>
       </div>
     </a>
     <a class="right-next"
@@ -900,6 +912,7 @@ document.write(`
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -936,9 +949,10 @@ By <a href="https://dominiquemakowski.github.io/">Dominique Makowski</a> and the
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2020–2023.
+      © Copyright 2020–2024.
       <br/>
     
   </p>
@@ -962,8 +976,8 @@ By <a href="https://dominiquemakowski.github.io/">Dominique Makowski</a> and the
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

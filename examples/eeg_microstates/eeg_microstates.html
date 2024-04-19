@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>EEG Microstates &#8212; NeuroKit2 0.2.8 documentation</title>
   
@@ -19,37 +18,34 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
-  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/documentation_options.js?v=a0cf2451"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'examples/eeg_microstates/eeg_microstates';</script>
-    <link rel="shortcut icon" href="../../_static/icon.ico"/>
+    <link rel="icon" href="../../_static/icon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Fit a function to a non-linear pattern" href="../misc_fit_function/misc_fit_function.html" />
@@ -63,10 +59,9 @@
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -107,11 +102,14 @@
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -126,6 +124,7 @@
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../../index.html">
@@ -144,7 +143,18 @@
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Menu</span></p>
 <ul class="current nav bd-sidenav">
@@ -156,7 +166,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../bio_eventrelated/bio_eventrelated.html">Event-related Analysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bio_intervalrelated/bio_intervalrelated.html">Interval-related Analysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bio_custom/bio_custom.html">Customize your Processing Pipeline</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../ecg_hrv/ecg_hrv.html">Heart Rate Varability (HRV)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ecg_hrv/ecg_hrv.html">Heart Rate Variability (HRV)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ecg_heartbeats/ecg_heartbeats.html">Extract and Visualize Individual Heartbeats</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ecg_delineate/ecg_delineate.html">Locate P, Q, S and T waves in ECG</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ecg_edr/ecg_edr.html">ECG-Derived Respiration (EDR)</a></li>
@@ -386,6 +396,7 @@
 </button>
 
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
@@ -395,6 +406,7 @@ document.write(`
   </button>
 `);
 </script>
+
 
 <script>
 document.write(`
@@ -446,10 +458,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section id="eeg-microstates">
-<h1>EEG Microstates<a class="headerlink" href="#eeg-microstates" title="Permalink to this heading">#</a></h1>
+<h1>EEG Microstates<a class="headerlink" href="#eeg-microstates" title="Link to this heading">#</a></h1>
 <p>In continually recorded human EEG, the spatial distribution of electric potentials across the cortex changes over time. Interestingly, for brief time periods (60 - 120ms), quasi-stable states of activity (i.e., <strong>microstates</strong>), characterized by unique spatial configurations of electrical activity distribution, have been observed. NeuroKit can be used to easily analyze them.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -463,7 +475,7 @@ document.write(`
 <div class="cell tag_remove-input docutils container">
 </div>
 <section id="eeg-preprocessing">
-<h2>EEG Preprocessing<a class="headerlink" href="#eeg-preprocessing" title="Permalink to this heading">#</a></h2>
+<h2>EEG Preprocessing<a class="headerlink" href="#eeg-preprocessing" title="Link to this heading">#</a></h2>
 <p>First, let’s download a raw eeg data in an <a class="reference external" href="https://mne.tools/stable/index.html">MNE</a> format and select teh EEG channels.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -490,14 +502,14 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/951deae6bb1727cf9551a365eb5af7d0bc92a4940f22bb9efeb6146b5e78569e.png" src="../../_images/951deae6bb1727cf9551a365eb5af7d0bc92a4940f22bb9efeb6146b5e78569e.png" />
+<img alt="../../_images/649aba78d8879b82e8b1a938cc4ae39b52ab77a4c6e8a26d5d13f30b9e21a057.png" src="../../_images/649aba78d8879b82e8b1a938cc4ae39b52ab77a4c6e8a26d5d13f30b9e21a057.png" />
 </div>
 </div>
 </section>
 <section id="microstates-analysis">
-<h2>Microstates Analysis<a class="headerlink" href="#microstates-analysis" title="Permalink to this heading">#</a></h2>
+<h2>Microstates Analysis<a class="headerlink" href="#microstates-analysis" title="Link to this heading">#</a></h2>
 <section id="minimal-example">
-<h3>Minimal Example<a class="headerlink" href="#minimal-example" title="Permalink to this heading">#</a></h3>
+<h3>Minimal Example<a class="headerlink" href="#minimal-example" title="Link to this heading">#</a></h3>
 <p>Microstates can be extracted and analyzed like that:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -510,7 +522,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/7d6f3b1fa7125dc4b5864a279c0f81c8a786f49cc2ad465386b332a7be49e382.png" src="../../_images/7d6f3b1fa7125dc4b5864a279c0f81c8a786f49cc2ad465386b332a7be49e382.png" />
+<img alt="../../_images/5aca8ae6a131c220eb8f17e93cb5cedf5294d87495c6fc5a3c7ab7a619350fca.png" src="../../_images/5aca8ae6a131c220eb8f17e93cb5cedf5294d87495c6fc5a3c7ab7a619350fca.png" />
 </div>
 </div>
 <p>This shows the aspect of the microstates and their sequence in the Global Field Power (GFP; see below). We can then proceed to a statistical analysis.</p>
@@ -562,28 +574,28 @@ document.write(`
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.17525</td>
-      <td>0.261583</td>
-      <td>0.312083</td>
-      <td>0.251083</td>
-      <td>492.5</td>
-      <td>736.0</td>
-      <td>793.5</td>
-      <td>687.0</td>
-      <td>0.018129</td>
+      <td>0.2725</td>
+      <td>0.251667</td>
+      <td>0.17025</td>
+      <td>0.305583</td>
+      <td>742.5</td>
+      <td>684.5</td>
+      <td>478.0</td>
+      <td>790.0</td>
+      <td>0.020061</td>
+      <td>0.015</td>
+      <td>0.019409</td>
+      <td>0.015</td>
+      <td>0.018048</td>
       <td>0.01</td>
-      <td>0.01914</td>
+      <td>0.021075</td>
       <td>0.015</td>
-      <td>0.021474</td>
-      <td>0.015</td>
-      <td>0.019314</td>
-      <td>0.015</td>
-      <td>0.019659</td>
+      <td>0.019809</td>
       <td>0.015</td>
     </tr>
   </tbody>
 </table>
-</div></div><img alt="../../_images/6bdfac4b5af567a529c2c77d58c090bd34d578a5df2e4783e3f38c049434077c.png" src="../../_images/6bdfac4b5af567a529c2c77d58c090bd34d578a5df2e4783e3f38c049434077c.png" />
+</div></div><img alt="../../_images/86668551c509aabd129e24f1a2c2b3ba525a5cdcf8220ac4a9b53d777ac149eb.png" src="../../_images/86668551c509aabd129e24f1a2c2b3ba525a5cdcf8220ac4a9b53d777ac149eb.png" />
 </div>
 </div>
 <p>This shows computes static statistics, such as the prevalence of each microstates and the median duration time (also shown in the graph).</p>
@@ -633,26 +645,26 @@ document.write(`
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.724204</td>
-      <td>0.0932</td>
-      <td>0.106039</td>
-      <td>0.076557</td>
-      <td>0.063416</td>
-      <td>0.739006</td>
-      <td>0.102932</td>
-      <td>0.094646</td>
-      <td>0.058211</td>
-      <td>0.088652</td>
-      <td>0.767156</td>
-      <td>0.085981</td>
-      <td>0.054099</td>
-      <td>0.096913</td>
-      <td>0.107866</td>
-      <td>0.741122</td>
+      <td>0.750765</td>
+      <td>0.090214</td>
+      <td>0.055657</td>
+      <td>0.103364</td>
+      <td>0.100662</td>
+      <td>0.742384</td>
+      <td>0.054967</td>
+      <td>0.101987</td>
+      <td>0.096964</td>
+      <td>0.070029</td>
+      <td>0.72331</td>
+      <td>0.109696</td>
+      <td>0.085083</td>
+      <td>0.092719</td>
+      <td>0.059449</td>
+      <td>0.762749</td>
     </tr>
   </tbody>
 </table>
-</div></div><img alt="../../_images/def04ec0f6db5b6f92e71ef73e36dda802fa2062f342c44533ad27a9a1765ef4.png" src="../../_images/def04ec0f6db5b6f92e71ef73e36dda802fa2062f342c44533ad27a9a1765ef4.png" />
+</div></div><img alt="../../_images/499eb6e16eaa63f14b1ec783fb637ce55fda7ad1af4bee4e1c584b23973dc46b.png" src="../../_images/499eb6e16eaa63f14b1ec783fb637ce55fda7ad1af4bee4e1c584b23973dc46b.png" />
 </div>
 </div>
 <p>Finally, one can compute complexity features of the sequence of microstates, such as the entropy.</p>
@@ -687,19 +699,19 @@ document.write(`
   <tbody>
     <tr>
       <th>0</th>
-      <td>1.971292</td>
+      <td>1.969565</td>
     </tr>
   </tbody>
 </table>
-</div></div><img alt="../../_images/4717e603ffa032fedac73c994d77a89d19c4327ad43e7d9e14efe9af958bd0e5.png" src="../../_images/4717e603ffa032fedac73c994d77a89d19c4327ad43e7d9e14efe9af958bd0e5.png" />
+</div></div><img alt="../../_images/57a7ee50e1b7c2ceb9f92f7f95ed523e5c5f50aa4e7efb57471283c5c2a92a7f.png" src="../../_images/57a7ee50e1b7c2ceb9f92f7f95ed523e5c5f50aa4e7efb57471283c5c2a92a7f.png" />
 </div>
 </div>
 </section>
 </section>
 <section id="options-and-features">
-<h2>Options and features<a class="headerlink" href="#options-and-features" title="Permalink to this heading">#</a></h2>
+<h2>Options and features<a class="headerlink" href="#options-and-features" title="Link to this heading">#</a></h2>
 <section id="global-field-power-gfp">
-<h3>Global Field Power (GFP)<a class="headerlink" href="#global-field-power-gfp" title="Permalink to this heading">#</a></h3>
+<h3>Global Field Power (GFP)<a class="headerlink" href="#global-field-power-gfp" title="Link to this heading">#</a></h3>
 <p>Under the hood, <code class="docutils literal notranslate"><span class="pre">microstates_segment()</span></code> starts by computing the GFP.</p>
 <p>The Global Field Power (GFP) is a reference-independent measure of potential field strength. It is thought to quantify the integrated electrical activity of the brain and is mathematically defined as the standard deviation of all electrodes at a given time.</p>
 <p>The GFP time series periodically shows peaks, where the EEG topographies are most clearly defined (i.e., signal-to-noise ratio is maximized at GFP peaks). As such, GFP peak samples are often used to extract microstates.</p>
@@ -716,7 +728,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/8bb8d816aa62c1a6d58a9f1e301f20255d8ce951432370aa6927db4fbd828e0b.png" src="../../_images/8bb8d816aa62c1a6d58a9f1e301f20255d8ce951432370aa6927db4fbd828e0b.png" />
+<img alt="../../_images/bb1c6a5ccaf568bee60c5f1aafa1813eeb4fe70bd3b81194252715a86e00f2ee.png" src="../../_images/bb1c6a5ccaf568bee60c5f1aafa1813eeb4fe70bd3b81194252715a86e00f2ee.png" />
 </div>
 </div>
 <p>By default, the microstates clustering algorithm is <strong>trained</strong> on the EEG activity at these peaks, and then applied to back-predict the state at all data points. However, this behaviour can be changed. For instance, one can decide to train the algorithm directly on all data points.</p>
@@ -728,12 +740,12 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/1c322c20f9e25835db76579652730285d474822a5d437a49df562d1412e8483e.png" src="../../_images/1c322c20f9e25835db76579652730285d474822a5d437a49df562d1412e8483e.png" />
+<img alt="../../_images/31bfdeec50beac3d1559686d7178342f15cce76b88aa8a2a3b9a09998b19014c.png" src="../../_images/31bfdeec50beac3d1559686d7178342f15cce76b88aa8a2a3b9a09998b19014c.png" />
 </div>
 </div>
 </section>
 <section id="how-many-microstates">
-<h3>How many microstates?<a class="headerlink" href="#how-many-microstates" title="Permalink to this heading">#</a></h3>
+<h3>How many microstates?<a class="headerlink" href="#how-many-microstates" title="Link to this heading">#</a></h3>
 <p>Most of the clustering algorithms used in microstates analysis require the number of clusters to extract to be specified beforehand.</p>
 <p>However, one can attempt at statistically estimating the optimal number of microstates. A variety of indices of fit can be used.</p>
 <div class="cell docutils container">
@@ -775,13 +787,13 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimal number of microstates:  4.0
 </pre></div>
 </div>
-<img alt="../../_images/ac655100c47298dcecd912660739851cbe2b0871c29fb300f51123177bd972c6.png" src="../../_images/ac655100c47298dcecd912660739851cbe2b0871c29fb300f51123177bd972c6.png" />
+<img alt="../../_images/68dd641899c94f5cde693005fa76336f1bd9fec0b6c25e8a25d28ebcb6d15ca8.png" src="../../_images/68dd641899c94f5cde693005fa76336f1bd9fec0b6c25e8a25d28ebcb6d15ca8.png" />
 </div>
 </div>
 </section>
 <section id="microstates-clustering-algorithms">
-<h3>Microstates clustering algorithms<a class="headerlink" href="#microstates-clustering-algorithms" title="Permalink to this heading">#</a></h3>
-<p>Several different clustering algorithms can be used to segment your EEG recordings into microstates. These algorithms mainly differ in how they define cluster membership and the cost functionals to be optimized (<span class="xref myst">Xu &amp; Tian, 2015</span>). The method to use hence depends on your data and the underlying assumptions of the methods (e.g., some methods ignore polarity). There is no one true method that gives the best results but you can refer to <a class="reference external" href="https://www.researchgate.net/publication/331367421_Microstate_EEGlab_toolbox_An_introductory_guide#pf6">Poulsen et al., 2018</a> if you would like a more detailed review of the different clustering methods.</p>
+<h3>Microstates clustering algorithms<a class="headerlink" href="#microstates-clustering-algorithms" title="Link to this heading">#</a></h3>
+<p>Several different clustering algorithms can be used to segment your EEG recordings into microstates. These algorithms mainly differ in how they define cluster membership and the cost functionals to be optimized (<a class="reference internal" href="#10.1007/s40745-015-0040-1"><span class="xref myst">Xu &amp; Tian, 2015</span></a>). The method to use hence depends on your data and the underlying assumptions of the methods (e.g., some methods ignore polarity). There is no one true method that gives the best results but you can refer to <a class="reference external" href="https://www.researchgate.net/publication/331367421_Microstate_EEGlab_toolbox_An_introductory_guide#pf6">Poulsen et al., 2018</a> if you would like a more detailed review of the different clustering methods.</p>
 <p>In the example below, we will compare the two most commonly applied clustering algorithms - the <em>K-means</em> and <em>modified K-means</em>. Other methods that can be applied using <code class="docutils literal notranslate"><span class="pre">nk.microstates_segment</span></code> include <code class="docutils literal notranslate"><span class="pre">kmedoids,</span> <span class="pre">pca,</span> <span class="pre">ica,</span> <span class="pre">aahc</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -802,12 +814,12 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Using conventional Kmeans,  GEV = 62.60%
- Using modified Kmeans,  GEV = 72.05%
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Using conventional Kmeans,  GEV = 61.82%
+ Using modified Kmeans,  GEV = 71.80%
 </pre></div>
 </div>
-<img alt="../../_images/7def5c28512cfb801bbdc90de35bd68d9f30e42eacdbced92fdf839d466b7213.png" src="../../_images/7def5c28512cfb801bbdc90de35bd68d9f30e42eacdbced92fdf839d466b7213.png" />
-<img alt="../../_images/f51b67f2ffe85bd7e910f0b672f61267b82416addce5bbba8f1e2346dab321a9.png" src="../../_images/f51b67f2ffe85bd7e910f0b672f61267b82416addce5bbba8f1e2346dab321a9.png" />
+<img alt="../../_images/bf1db439de5d0e60abed9ed7418da5dee2338790abd4c2e30211d96c1121fd2c.png" src="../../_images/bf1db439de5d0e60abed9ed7418da5dee2338790abd4c2e30211d96c1121fd2c.png" />
+<img alt="../../_images/c94c06df813dee374da38adbd3d239fc07a02a812ae4515402b69316d5e52e24.png" src="../../_images/c94c06df813dee374da38adbd3d239fc07a02a812ae4515402b69316d5e52e24.png" />
 </div>
 </div>
 </section>
@@ -823,7 +835,7 @@ document.write(`
               
               
                 <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="../eeg_complexity/eeg_complexity.html"
@@ -851,6 +863,7 @@ document.write(`
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -890,9 +903,10 @@ By <a href="https://dominiquemakowski.github.io/">Dominique Makowski</a> and the
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2020–2023.
+      © Copyright 2020–2024.
       <br/>
     
   </p>
@@ -916,8 +930,8 @@ By <a href="https://dominiquemakowski.github.io/">Dominique Makowski</a> and the
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Respiratory Rate Variability (RRV) &#8212; NeuroKit2 0.2.8 documentation</title>
   
@@ -19,37 +18,34 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
-  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/documentation_options.js?v=a0cf2451"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'examples/rsp_rrv/rsp_rrv';</script>
-    <link rel="shortcut icon" href="../../_static/icon.ico"/>
+    <link rel="icon" href="../../_static/icon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Analyze Electrooculography (EOG)" href="../eog_analyze/eog_analyze.html" />
@@ -63,10 +59,9 @@
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -107,11 +102,14 @@
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -126,6 +124,7 @@
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../../index.html">
@@ -144,7 +143,18 @@
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Menu</span></p>
 <ul class="current nav bd-sidenav">
@@ -156,7 +166,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../bio_eventrelated/bio_eventrelated.html">Event-related Analysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bio_intervalrelated/bio_intervalrelated.html">Interval-related Analysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bio_custom/bio_custom.html">Customize your Processing Pipeline</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../ecg_hrv/ecg_hrv.html">Heart Rate Varability (HRV)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ecg_hrv/ecg_hrv.html">Heart Rate Variability (HRV)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ecg_heartbeats/ecg_heartbeats.html">Extract and Visualize Individual Heartbeats</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ecg_delineate/ecg_delineate.html">Locate P, Q, S and T waves in ECG</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ecg_edr/ecg_edr.html">ECG-Derived Respiration (EDR)</a></li>
@@ -386,6 +396,7 @@
 </button>
 
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
@@ -395,6 +406,7 @@ document.write(`
   </button>
 `);
 </script>
+
 
 <script>
 document.write(`
@@ -437,14 +449,14 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section id="respiratory-rate-variability-rrv">
-<h1>Respiratory Rate Variability (RRV)<a class="headerlink" href="#respiratory-rate-variability-rrv" title="Permalink to this heading">#</a></h1>
+<h1>Respiratory Rate Variability (RRV)<a class="headerlink" href="#respiratory-rate-variability-rrv" title="Link to this heading">#</a></h1>
 <p>This example can be referenced by <a class="reference external" href="https://neuropsychology.github.io/NeuroKit/cite_us.html">citing the package</a>.</p>
 <p>Respiratory Rate Variability (RRV), or variations in respiratory rhythm, are crucial indices of general health and respiratory complications. This example shows how to use NeuroKit to perform RRV analysis.</p>
 <section id="download-data-and-extract-relevant-signals">
-<h2>Download Data and Extract Relevant Signals<a class="headerlink" href="#download-data-and-extract-relevant-signals" title="Permalink to this heading">#</a></h2>
+<h2>Download Data and Extract Relevant Signals<a class="headerlink" href="#download-data-and-extract-relevant-signals" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load NeuroKit and other useful packages</span>
@@ -470,7 +482,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/557ee8937b0a38da794fa0a13136b04e101eb225d130086c545322392c801fe3.png" src="../../_images/557ee8937b0a38da794fa0a13136b04e101eb225d130086c545322392c801fe3.png" />
+<img alt="../../_images/777d576b9f80a66ceaea7d19e76a06c829b71dcb32a0963fa95330456142399e.png" src="../../_images/777d576b9f80a66ceaea7d19e76a06c829b71dcb32a0963fa95330456142399e.png" />
 </div>
 </div>
 <p>You now have the raw RSP signal in the shape of a vector (i.e., a one-dimensional array). You can then clean it using <code class="docutils literal notranslate"><span class="pre">rsp_clean()</span></code> and extract the inhalation peaks of the signal using <code class="docutils literal notranslate"><span class="pre">rsp_peaks()</span></code>. This will output 1) a <em>dataframe</em> indicating the occurrences of inhalation peaks and exhalation troughs (“1” marked in a list of zeros), and 2) a <em>dictionary</em> showing the samples of peaks and troughs.</p>
@@ -495,7 +507,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/c58ef43655fb14017c992a1881dd0851435462ae6826578d09e668ddf37db98d.png" src="../../_images/c58ef43655fb14017c992a1881dd0851435462ae6826578d09e668ddf37db98d.png" />
+<img alt="../../_images/8f8f9904676ce28253298f1ea50013b412c5123a09ce9ff2edfb771e3044413e.png" src="../../_images/8f8f9904676ce28253298f1ea50013b412c5123a09ce9ff2edfb771e3044413e.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -505,7 +517,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/260340322dea2b86fad07c9321e600b7546739c0d78336651d458405f6cea71b.png" src="../../_images/260340322dea2b86fad07c9321e600b7546739c0d78336651d458405f6cea71b.png" />
+<img alt="../../_images/2917bf1c5db4439f588bfc77308256e81488287d9dfcb6ad5dc01f62a9348845.png" src="../../_images/2917bf1c5db4439f588bfc77308256e81488287d9dfcb6ad5dc01f62a9348845.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -515,7 +527,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/260340322dea2b86fad07c9321e600b7546739c0d78336651d458405f6cea71b.png" src="../../_images/260340322dea2b86fad07c9321e600b7546739c0d78336651d458405f6cea71b.png" />
+<img alt="../../_images/2917bf1c5db4439f588bfc77308256e81488287d9dfcb6ad5dc01f62a9348845.png" src="../../_images/2917bf1c5db4439f588bfc77308256e81488287d9dfcb6ad5dc01f62a9348845.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -533,12 +545,12 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Breaths Per Minute&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/374de9eb2a4ac8406909ed96d8be290f8f0840d7a57f394fdec16e35e8af9242.png" src="../../_images/374de9eb2a4ac8406909ed96d8be290f8f0840d7a57f394fdec16e35e8af9242.png" />
+<img alt="../../_images/023d2243dbc8c7a7a0112415cd2b94b64f46a40e0c4af8d796ad319f2b20527e.png" src="../../_images/023d2243dbc8c7a7a0112415cd2b94b64f46a40e0c4af8d796ad319f2b20527e.png" />
 </div>
 </div>
 </section>
 <section id="analyse-rrv">
-<h2>Analyse RRV<a class="headerlink" href="#analyse-rrv" title="Permalink to this heading">#</a></h2>
+<h2>Analyse RRV<a class="headerlink" href="#analyse-rrv" title="Link to this heading">#</a></h2>
 <p>Now that we have extracted the respiratory rate signal and the peaks dictionary, you can then input these into <code class="docutils literal notranslate"><span class="pre">rsp_rrv()</span></code>. This outputs a variety of RRV indices including time domain, frequency domain, and nonlinear features. Examples of time domain features include RMSSD (root-mean-squared standard deviation) or SDBB (standard deviation of the breath-to-breath intervals). Power spectral analyses (e.g., LF, HF, LFHF) and entropy measures (e.g., sample entropy, SampEn where smaller values indicate that respiratory rate is regular and predictable) are also examples of frequency domain and nonlinear features respectively.</p>
 <p>A Poincaré plot is also shown when setting <code class="docutils literal notranslate"><span class="pre">show=True</span></code>, plotting each breath-to-breath interval against the next successive one. It shows the distribution of successive respiratory rates.</p>
 <div class="cell docutils container">
@@ -615,8 +627,8 @@ document.write(`
     </tr>
   </tbody>
 </table>
-</div></div><img alt="../../_images/e5c0003e15b73b3c7d672447d8dadc4bfccc65079d593f9fd97db106b7e570b5.png" src="../../_images/e5c0003e15b73b3c7d672447d8dadc4bfccc65079d593f9fd97db106b7e570b5.png" />
-<img alt="../../_images/53133b48ab5e85c98b2487987a91a9812f17c37dd6c7fb5c326571e30251ea4f.png" src="../../_images/53133b48ab5e85c98b2487987a91a9812f17c37dd6c7fb5c326571e30251ea4f.png" />
+</div></div><img alt="../../_images/6feceb3e2259af6e16131dee0d6a96e0165b67c47bed7129a1f7eba2f4b2b001.png" src="../../_images/6feceb3e2259af6e16131dee0d6a96e0165b67c47bed7129a1f7eba2f4b2b001.png" />
+<img alt="../../_images/5a1320c5af951ce7e1294682b6610fc9a56f671ba7ee442144a2440271792640.png" src="../../_images/5a1320c5af951ce7e1294682b6610fc9a56f671ba7ee442144a2440271792640.png" />
 </div>
 </div>
 <p>This is a simple visualization tool for short-term (SD1) and long-term variability (SD2) in respiratory rhythm.</p>
@@ -632,7 +644,7 @@ document.write(`
               
               
                 <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="../eda_peaks/eda_peaks.html"
@@ -660,6 +672,7 @@ document.write(`
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -690,9 +703,10 @@ By <a href="https://dominiquemakowski.github.io/">Dominique Makowski</a> and the
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2020–2023.
+      © Copyright 2020–2024.
       <br/>
     
   </p>
@@ -716,8 +730,8 @@ By <a href="https://dominiquemakowski.github.io/">Dominique Makowski</a> and the
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

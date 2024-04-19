@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>EEG Complexity Analysis &#8212; NeuroKit2 0.2.8 documentation</title>
   
@@ -19,37 +18,34 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
-  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/documentation_options.js?v=a0cf2451"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'examples/eeg_complexity/eeg_complexity';</script>
-    <link rel="shortcut icon" href="../../_static/icon.ico"/>
+    <link rel="icon" href="../../_static/icon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="EEG Microstates" href="../eeg_microstates/eeg_microstates.html" />
@@ -63,10 +59,9 @@
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -107,11 +102,14 @@
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -126,6 +124,7 @@
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../../index.html">
@@ -144,7 +143,18 @@
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Menu</span></p>
 <ul class="current nav bd-sidenav">
@@ -156,7 +166,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../bio_eventrelated/bio_eventrelated.html">Event-related Analysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bio_intervalrelated/bio_intervalrelated.html">Interval-related Analysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bio_custom/bio_custom.html">Customize your Processing Pipeline</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../ecg_hrv/ecg_hrv.html">Heart Rate Varability (HRV)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ecg_hrv/ecg_hrv.html">Heart Rate Variability (HRV)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ecg_heartbeats/ecg_heartbeats.html">Extract and Visualize Individual Heartbeats</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ecg_delineate/ecg_delineate.html">Locate P, Q, S and T waves in ECG</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ecg_edr/ecg_edr.html">ECG-Derived Respiration (EDR)</a></li>
@@ -386,6 +396,7 @@
 </button>
 
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
@@ -395,6 +406,7 @@ document.write(`
   </button>
 `);
 </script>
+
 
 <script>
 document.write(`
@@ -444,10 +456,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section id="eeg-complexity-analysis">
-<h1>EEG Complexity Analysis<a class="headerlink" href="#eeg-complexity-analysis" title="Permalink to this heading">#</a></h1>
+<h1>EEG Complexity Analysis<a class="headerlink" href="#eeg-complexity-analysis" title="Link to this heading">#</a></h1>
 <p>In this example, we are going to apply <strong>complexity analysis</strong> to EEG data. Useful reads include:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://neuropsychology.github.io/NeuroKit/functions/complexity.html">List of complexity indices available in NeuroKit</a></p></li>
@@ -472,7 +484,7 @@ document.write(`
 <div class="cell tag_remove-input docutils container">
 </div>
 <section id="data-preprocessing">
-<h2>Data Preprocessing<a class="headerlink" href="#data-preprocessing" title="Permalink to this heading">#</a></h2>
+<h2>Data Preprocessing<a class="headerlink" href="#data-preprocessing" title="Link to this heading">#</a></h2>
 <p>Load and format the EEG data of one participant following this <a class="reference external" href="https://mne.tools/dev/auto_tutorials/evoked/30_eeg_erp.html">MNE example</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -501,12 +513,12 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/e2ff99abb22522c34a1d0d3ac262d935aa13f2f29e8a24439503d7f29d0e853e.png" src="../../_images/e2ff99abb22522c34a1d0d3ac262d935aa13f2f29e8a24439503d7f29d0e853e.png" />
+<img alt="../../_images/a569ab35ce73e31283a478062feee09957f1c5350a3a7f9356a5978e9cec0ba1.png" src="../../_images/a569ab35ce73e31283a478062feee09957f1c5350a3a7f9356a5978e9cec0ba1.png" />
 </div>
 </div>
 </section>
 <section id="interval-related-complexity-analysis">
-<h2>Interval-related Complexity Analysis<a class="headerlink" href="#interval-related-complexity-analysis" title="Permalink to this heading">#</a></h2>
+<h2>Interval-related Complexity Analysis<a class="headerlink" href="#interval-related-complexity-analysis" title="Link to this heading">#</a></h2>
 <p>This type of analysis is suited for when we don’t have time-locked “events”, and we want to compute the complexity over the whole signal (e.g., in <a class="reference external" href="https://github.com/RealityBending/RestingState"><strong>resting-state paradigms</strong></a>).</p>
 <p>We will first extract the signal at a subset of channels of interest (region of interest, ROI). We will pick 4 fronto-central channels, namely <em>EEG 011-014</em>, as follows:</p>
 <div class="cell docutils container">
@@ -526,7 +538,7 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NOTE: pick_channels() is a legacy function. New code should use inst.pick(...).
 </pre></div>
 </div>
-<img alt="../../_images/e5f51171c53a25050ac7a2a3126e59d59e25cbf53ba987fa718c4bbb08d39fe1.png" src="../../_images/e5f51171c53a25050ac7a2a3126e59d59e25cbf53ba987fa718c4bbb08d39fe1.png" />
+<img alt="../../_images/357b0eb7e1e641af21b6e881bfc97efafe8c0dafffaec09a7d7490a81ac1fe54.png" src="../../_images/357b0eb7e1e641af21b6e881bfc97efafe8c0dafffaec09a7d7490a81ac1fe54.png" />
 </div>
 </div>
 <p>Now, we can compute the complexity metrics of this signal.</p>
@@ -552,14 +564,14 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>SVDEn score: 1.22
 </pre></div>
 </div>
-<img alt="../../_images/851fc9dc486c0851962c3218db450400cbb6ebb8dc2a1c4a5e05e982705143f1.png" src="../../_images/851fc9dc486c0851962c3218db450400cbb6ebb8dc2a1c4a5e05e982705143f1.png" />
+<img alt="../../_images/4843709fb054a9601d6a93895df123e4a7ad88642d2744a6bd07e8f276a91859.png" src="../../_images/4843709fb054a9601d6a93895df123e4a7ad88642d2744a6bd07e8f276a91859.png" />
 </div>
 </div>
 </section>
 <section id="event-related-complexity-analysis">
-<h2>Event-related Complexity Analysis<a class="headerlink" href="#event-related-complexity-analysis" title="Permalink to this heading">#</a></h2>
+<h2>Event-related Complexity Analysis<a class="headerlink" href="#event-related-complexity-analysis" title="Link to this heading">#</a></h2>
 <section id="event-related-preprocessing-epoching">
-<h3>Event-related Preprocessing (Epoching)<a class="headerlink" href="#event-related-preprocessing-epoching" title="Permalink to this heading">#</a></h3>
+<h3>Event-related Preprocessing (Epoching)<a class="headerlink" href="#event-related-preprocessing-epoching" title="Link to this heading">#</a></h3>
 <p>We will now create <strong>epochs</strong> around each event, and reject some based on extreme values.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -595,26 +607,14 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NOTE: pick_channels() is a legacy function. New code should use inst.pick(...).
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NOTE: pick_channels() is a legacy function. New code should use inst.pick(...).
-</pre></div>
-</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>No projector specified for this dataset. Please consider the method self.add_proj.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NOTE: pick_channels() is a legacy function. New code should use inst.pick(...).
-</pre></div>
-</div>
-<img alt="../../_images/7666585b8a92dc03302af877bf7262e375e27dc3f828371517eb340c2aca7df0.png" src="../../_images/7666585b8a92dc03302af877bf7262e375e27dc3f828371517eb340c2aca7df0.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NOTE: pick_channels() is a legacy function. New code should use inst.pick(...).
-</pre></div>
-</div>
+<img alt="../../_images/1d0928339582d618061669d42922304e2a4c46fcac54a0ceb1d33a783d6eddaf.png" src="../../_images/1d0928339582d618061669d42922304e2a4c46fcac54a0ceb1d33a783d6eddaf.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>No projector specified for this dataset. Please consider the method self.add_proj.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NOTE: pick_channels() is a legacy function. New code should use inst.pick(...).
-</pre></div>
-</div>
-<img alt="../../_images/70e94bf4f5c39640f00113d506f6b6f19fea2f199b608e74d84bd47b2ca7e0c7.png" src="../../_images/70e94bf4f5c39640f00113d506f6b6f19fea2f199b608e74d84bd47b2ca7e0c7.png" />
+<img alt="../../_images/68ec67e15f7cc7f03c8df1caa4e500f9277ef78b11ac7726a1dbf06d15b18364.png" src="../../_images/68ec67e15f7cc7f03c8df1caa4e500f9277ef78b11ac7726a1dbf06d15b18364.png" />
 </div>
 </div>
 <p>Now we are going to convert the data to a Pandas dataframe and concatenate the two groups of epochs. Next, we are going to average together the EEG channels.</p>
@@ -720,7 +720,7 @@ document.write(`
 </div>
 </section>
 <section id="event-related-attractors">
-<h3>Event-related Attractors<a class="headerlink" href="#event-related-attractors" title="Permalink to this heading">#</a></h3>
+<h3>Event-related Attractors<a class="headerlink" href="#event-related-attractors" title="Link to this heading">#</a></h3>
 <p>Let’s visualize the attractors of the averaged events. We will then compute the complexity metrics for each epoch separately. We will re-use the <a class="reference external" href="https://neuropsychology.github.io/NeuroKit/functions/complexity.html#complexity-delay"><strong>delay</strong></a> parameters selected above, but this time with a dimension of 2 for easier visualization.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -741,12 +741,12 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Event-related Attractors&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/dadfd82ff643c8a2ed3554599efd83d57d18dc04c106c61b284abdd56a128212.png" src="../../_images/dadfd82ff643c8a2ed3554599efd83d57d18dc04c106c61b284abdd56a128212.png" />
+<img alt="../../_images/a68fe70f5263171fc2c75b2683b633ad5ae3fb9528f7bc61bb9dc6ef9942c008.png" src="../../_images/a68fe70f5263171fc2c75b2683b633ad5ae3fb9528f7bc61bb9dc6ef9942c008.png" />
 </div>
 </div>
 </section>
 <section id="compute-complexity-indices-per-epoch">
-<h3>Compute complexity indices per epoch<a class="headerlink" href="#compute-complexity-indices-per-epoch" title="Permalink to this heading">#</a></h3>
+<h3>Compute complexity indices per epoch<a class="headerlink" href="#compute-complexity-indices-per-epoch" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_sdvden</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -768,6 +768,12 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\runneradmin\AppData\Local\Temp\ipykernel_5204\1026332364.py:11: DeprecationWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
+  df.groupby([&quot;condition&quot;, &quot;epoch&quot;], as_index=False).apply(get_sdvden),
+C:\Users\runneradmin\AppData\Local\Temp\ipykernel_5204\1026332364.py:12: DeprecationWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
+  df.groupby([&quot;condition&quot;, &quot;epoch&quot;], as_index=False).apply(get_hjorth)
+</pre></div>
+</div>
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -846,7 +852,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TtestResult(statistic=0.3530201729161345, pvalue=0.7263454874826587, df=32.60499213593565)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TtestResult(statistic=0.3530201729161316, pvalue=0.7263454874826607, df=32.60499213593565)
 </pre></div>
 </div>
 </div>
@@ -869,12 +875,12 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;variable&#39;, ylabel=&#39;value&#39;&gt;
 </pre></div>
 </div>
-<img alt="../../_images/0a1c0a7fedb8c8c2f0c3e2e660077140e56383856eb79320c65448ee8aef2637.png" src="../../_images/0a1c0a7fedb8c8c2f0c3e2e660077140e56383856eb79320c65448ee8aef2637.png" />
+<img alt="../../_images/6ad0540e11212ec559115cda57ee4ac6ec144160a53c9cf8a499eeb6949cd745.png" src="../../_images/6ad0540e11212ec559115cda57ee4ac6ec144160a53c9cf8a499eeb6949cd745.png" />
 </div>
 </div>
 </section>
 <section id="fractal-density">
-<h3>Fractal Density<a class="headerlink" href="#fractal-density" title="Permalink to this heading">#</a></h3>
+<h3>Fractal Density<a class="headerlink" href="#fractal-density" title="Link to this heading">#</a></h3>
 <p><strong>Note: this index is totally exploratory and is mentioned here as part of a WIP development.</strong></p>
 <p>Now, we will average the signal of those 4 channels for each epoch and store them in a dictionary.</p>
 </section>
@@ -890,7 +896,7 @@ document.write(`
               
               
                 <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="../eeg_power/eeg_power.html"
@@ -918,6 +924,7 @@ document.write(`
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -955,9 +962,10 @@ By <a href="https://dominiquemakowski.github.io/">Dominique Makowski</a> and the
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2020–2023.
+      © Copyright 2020–2024.
       <br/>
     
   </p>
@@ -981,8 +989,8 @@ By <a href="https://dominiquemakowski.github.io/">Dominique Makowski</a> and the
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

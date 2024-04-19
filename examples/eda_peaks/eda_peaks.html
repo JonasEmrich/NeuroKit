@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Analyze Electrodermal Activity (EDA) &#8212; NeuroKit2 0.2.8 documentation</title>
   
@@ -19,37 +18,34 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
-  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/documentation_options.js?v=a0cf2451"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'examples/eda_peaks/eda_peaks';</script>
-    <link rel="shortcut icon" href="../../_static/icon.ico"/>
+    <link rel="icon" href="../../_static/icon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Respiratory Rate Variability (RRV)" href="../rsp_rrv/rsp_rrv.html" />
@@ -63,10 +59,9 @@
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -107,11 +102,14 @@
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -126,6 +124,7 @@
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../../index.html">
@@ -144,7 +143,18 @@
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Menu</span></p>
 <ul class="current nav bd-sidenav">
@@ -156,7 +166,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../bio_eventrelated/bio_eventrelated.html">Event-related Analysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bio_intervalrelated/bio_intervalrelated.html">Interval-related Analysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bio_custom/bio_custom.html">Customize your Processing Pipeline</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../ecg_hrv/ecg_hrv.html">Heart Rate Varability (HRV)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ecg_hrv/ecg_hrv.html">Heart Rate Variability (HRV)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ecg_heartbeats/ecg_heartbeats.html">Extract and Visualize Individual Heartbeats</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ecg_delineate/ecg_delineate.html">Locate P, Q, S and T waves in ECG</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ecg_edr/ecg_edr.html">ECG-Derived Respiration (EDR)</a></li>
@@ -386,6 +396,7 @@
 </button>
 
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
@@ -395,6 +406,7 @@ document.write(`
   </button>
 `);
 </script>
+
 
 <script>
 document.write(`
@@ -439,10 +451,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section id="analyze-electrodermal-activity-eda">
-<h1>Analyze Electrodermal Activity (EDA)<a class="headerlink" href="#analyze-electrodermal-activity-eda" title="Permalink to this heading">#</a></h1>
+<h1>Analyze Electrodermal Activity (EDA)<a class="headerlink" href="#analyze-electrodermal-activity-eda" title="Link to this heading">#</a></h1>
 <p>This example can be referenced by <a class="reference external" href="https://neuropsychology.github.io/NeuroKit/cite_us.html">citing the package</a>.</p>
 <p>This example shows how to use NeuroKit2 to extract the features from <strong>Electrodermal Activity (EDA)</strong>.</p>
 <div class="cell docutils container">
@@ -456,7 +468,7 @@ document.write(`
 <div class="cell tag_remove-input docutils container">
 </div>
 <section id="extract-the-cleaned-eda-signal">
-<h2>Extract the cleaned EDA signal<a class="headerlink" href="#extract-the-cleaned-eda-signal" title="Permalink to this heading">#</a></h2>
+<h2>Extract the cleaned EDA signal<a class="headerlink" href="#extract-the-cleaned-eda-signal" title="Link to this heading">#</a></h2>
 <p>In this example, we will use a simulated EDA signal. However, you can use any signal you have generated (for instance, extracted from the dataframe using <a class="reference external" href="https://neuropsychology.github.io/NeuroKit/functions/data.html#read-acqknowledge">read_acqknowledge()</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -479,7 +491,7 @@ document.write(`
 <p>This function outputs two elements, a <em>dataframe</em> containing the different signals (e.g., the raw signal, clean signal, SCR samples marking the different features etc.), and a <em>dictionary</em> containing information about the Skin Conductance Response (SCR) peaks (e.g., onsets, peak amplitude etc.).</p>
 </section>
 <section id="locate-skin-conductance-response-scr-features">
-<h2>Locate Skin Conductance Response (SCR) features<a class="headerlink" href="#locate-skin-conductance-response-scr-features" title="Permalink to this heading">#</a></h2>
+<h2>Locate Skin Conductance Response (SCR) features<a class="headerlink" href="#locate-skin-conductance-response-scr-features" title="Link to this heading">#</a></h2>
 <p>The processing function does two important things for our purpose: Firstly, it cleans the signal. Secondly, it detects the location of 1) peak onsets, 2) peak amplitude, and 3) half-recovery time. Let’s extract these from the output.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -499,12 +511,12 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/fb10027374a2e807ae2fe555184892533e40d8703bb27fc7ab305582b522095a.png" src="../../_images/fb10027374a2e807ae2fe555184892533e40d8703bb27fc7ab305582b522095a.png" />
+<img alt="../../_images/c7379e10ca13ffe7534e1e9ae6c68d3775d26420268393a61672dd0939319c6f.png" src="../../_images/c7379e10ca13ffe7534e1e9ae6c68d3775d26420268393a61672dd0939319c6f.png" />
 </div>
 </div>
 </section>
 <section id="decompose-eda-into-phasic-and-tonic-components">
-<h2>Decompose EDA into Phasic and Tonic components<a class="headerlink" href="#decompose-eda-into-phasic-and-tonic-components" title="Permalink to this heading">#</a></h2>
+<h2>Decompose EDA into Phasic and Tonic components<a class="headerlink" href="#decompose-eda-into-phasic-and-tonic-components" title="Link to this heading">#</a></h2>
 <p>We can also decompose the EDA signal into its phasic and tonic components, or more specifically, the <em><strong>Phasic Skin Conductance Response (SCR)</strong></em> and the <em><strong>Tonic Skin Conductance Level (SCL)</strong></em> respectively.
 The SCR represents the stimulus-dependent fast changing signal whereas the SCL is slow-changing and continuous. Separating these two signals helps to provide a more accurate estimation of the true SCR amplitude.</p>
 <div class="cell docutils container">
@@ -528,12 +540,12 @@ The SCR represents the stimulus-dependent fast changing signal whereas the SCL i
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
 </pre></div>
 </div>
-<img alt="../../_images/555d71954f8c5450c72fef496ba6546f8cbf74684203906e6b8443b9eb1b3d2a.png" src="../../_images/555d71954f8c5450c72fef496ba6546f8cbf74684203906e6b8443b9eb1b3d2a.png" />
+<img alt="../../_images/abdb48007ccb8c740c936f087ec604abb45ddfc90c378d7dd505a2cb9a5347ad.png" src="../../_images/abdb48007ccb8c740c936f087ec604abb45ddfc90c378d7dd505a2cb9a5347ad.png" />
 </div>
 </div>
 </section>
 <section id="quick-plot">
-<h2>Quick Plot<a class="headerlink" href="#quick-plot" title="Permalink to this heading">#</a></h2>
+<h2>Quick Plot<a class="headerlink" href="#quick-plot" title="Link to this heading">#</a></h2>
 <p>You can obtain all of these features by using the <a class="reference external" href="https://neuropsychology.github.io/NeuroKit/functions/eda.html#eda-plot">eda_plot()</a> function on the dataframe of processed EDA.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -547,7 +559,7 @@ The SCR represents the stimulus-dependent fast changing signal whereas the SCL i
   warn(
 </pre></div>
 </div>
-<img alt="../../_images/9ee1136d0e14ac92aaaaeb8bd7ae31566a455d36761c3dbc073934ab893e901f.png" src="../../_images/9ee1136d0e14ac92aaaaeb8bd7ae31566a455d36761c3dbc073934ab893e901f.png" />
+<img alt="../../_images/cabfd0bf94ea3455f60b429f362ffcd1a965f93615a58f86123d166b35e2fc54.png" src="../../_images/cabfd0bf94ea3455f60b429f362ffcd1a965f93615a58f86123d166b35e2fc54.png" />
 </div>
 </div>
 </section>
@@ -562,7 +574,7 @@ The SCR represents the stimulus-dependent fast changing signal whereas the SCL i
               
               
                 <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="../ecg_generate_12leads/ecg_generate_12leads.html"
@@ -590,6 +602,7 @@ The SCR represents the stimulus-dependent fast changing signal whereas the SCL i
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -622,9 +635,10 @@ By <a href="https://dominiquemakowski.github.io/">Dominique Makowski</a> and the
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2020–2023.
+      © Copyright 2020–2024.
       <br/>
     
   </p>
@@ -648,8 +662,8 @@ By <a href="https://dominiquemakowski.github.io/">Dominique Makowski</a> and the
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>
