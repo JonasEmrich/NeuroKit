@@ -1232,7 +1232,7 @@ def _ecg_findpeaks_visibilitygraph(
     for jj in range(n_segments):
         segment = signal[L:R]
 
-        # Select indicies and values to construct the visibility graph
+        # Select indices and values to construct the visibility graph
         if accelerated:
             # Compute the threshold for the segment
             threshold = np.quantile(segment, 0.5)
@@ -1257,13 +1257,18 @@ def _ecg_findpeaks_visibilitygraph(
         size = len(indices)
         w = np.ones(size) / size
         while np.count_nonzero(w) / size >= BETA:
+            if size <= 1:
+                # Preventing a division by zero warning
+                print("WARNING: Performance of R-peak detection using visibility graph detector might be impaired since segments are becoming very small. Consider not using the 'accelerated' option, or investigate the input ECG signal for flat line segments.")
+                break
+            
             _w = np.matmul(A, w)
             _w /= np.linalg.norm(_w)
             if np.any(np.isnan(_w)):
                 break
             w = _w
 
-        # Update weight vector by merging overlaping segments
+        # Update weight vector by merging overlapping segments
         if L == 0:
             weights[L + indices] = w
         elif N - dM + 1 <= L and L + 1 <= N:
