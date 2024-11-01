@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>EDA &#8212; NeuroKit2 0.2.9 documentation</title>
+    <title>EDA &#8212; NeuroKit2 0.2.10 documentation</title>
   
   
   
@@ -16,30 +16,33 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-
-  
-  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script src="../_static/documentation_options.js?v=1b33a64c"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/documentation_options.js?v=1db4c2ab"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
@@ -52,6 +55,7 @@
     <link rel="prev" title="RSP" href="rsp.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.2.10" />
   </head>
   
   
@@ -67,19 +71,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -87,7 +80,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -95,8 +87,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -112,7 +104,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -141,22 +134,18 @@
       
     
     
-    <img src="../_static/neurokit.png" class="logo__image only-light" alt="NeuroKit2 0.2.9 documentation - Home"/>
-    <script>document.write(`<img src="../_static/neurokit.png" class="logo__image only-dark" alt="NeuroKit2 0.2.9 documentation - Home"/>`);</script>
+    <img src="../_static/neurokit.png" class="logo__image only-light" alt="NeuroKit2 0.2.10 documentation - Home"/>
+    <img src="../_static/neurokit.png" class="logo__image only-dark pst-js-only" alt="NeuroKit2 0.2.10 documentation - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Menu</span></p>
@@ -165,6 +154,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../authors.html">Authors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cite_us.html">Cite us</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../codebook.html">Codebook</a></li>
+
 <li class="toctree-l1 has-children"><a class="reference internal" href="../examples/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../examples/bio_eventrelated/bio_eventrelated.html">Event-related Analysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../examples/bio_intervalrelated/bio_intervalrelated.html">Interval-related Analysis</a></li>
@@ -400,24 +391,16 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
+</button>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -550,22 +533,16 @@ see <a class="reference internal" href="rsp.html#neurokit2.rsp.rsp_methods" titl
 <li><p><strong>signals</strong> (<em>DataFrame</em>) – A DataFrame of same length as <code class="docutils literal notranslate"><span class="pre">&quot;eda_signal&quot;</span></code> containing the following
 columns:</p>
 <ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;EDA_Raw&quot;</span></code>: the raw signal.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;EDA_Clean&quot;</span></code>: the cleaned signal.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;EDA_Tonic&quot;</span></code>: the tonic component of the signal, or the Tonic Skin Conductance Level
-(SCL).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;EDA_Phasic&quot;</span></code>: the phasic component of the signal, or the Phasic Skin Conductance
-Response (SCR).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;SCR_Onsets&quot;</span></code>: the samples at which the onsets of the peaks occur, marked as “1” in a
-list of zeros.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;SCR_Peaks&quot;</span></code>: the samples at which the peaks occur, marked as “1” in a list of zeros.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;SCR_Height&quot;</span></code>: the SCR amplitude of the signal including the Tonic component. Note that
-cumulative effects of close-occurring SCRs might lead to an underestimation of the
-amplitude.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;SCR_Amplitude&quot;</span></code>: the SCR amplitude of the signal excluding the Tonic component.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;SCR_RiseTime&quot;</span></code>: the time taken for SCR onset to reach peak amplitude within the SCR.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;SCR_Recovery&quot;</span></code>: the samples at which SCR peaks recover (decline) to half amplitude,
-marked  as “1” in a list of zeros.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EDA_Raw</span></code>: The raw signal.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EDA_Clean</span></code>: The cleaned signal.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EDA_Tonic</span></code>: The tonic component of the signal, or the Tonic Skin Conductance Level (SCL).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EDA_Phasic</span></code>: The phasic component of the signal, or the Phasic Skin Conductance Response (SCR).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SCR_Onsets</span></code>: The samples at which the onsets of the peaks occur, marked as “1” in a list of zeros.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SCR_Peaks</span></code>: The samples at which the peaks occur, marked as “1” in a list of zeros.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SCR_Height</span></code>: The SCR amplitude of the signal including the Tonic component. Note that cumulative effects of close-occurring SCRs might lead to an underestimation of the amplitude.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SCR_Amplitude</span></code>: The SCR amplitude of the signal excluding the Tonic component.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SCR_RiseTime</span></code>: The SCR amplitude of the signal excluding the Tonic component.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SCR_Recovery</span></code>: The samples at which SCR peaks recover (decline) to half amplitude, marked as “1” in a list of zeros.</p></li>
 </ul>
 </li>
 <li><p><strong>info</strong> (<em>dict</em>) – A dictionary containing the information of each SCR peak (see <a class="reference internal" href="#neurokit2.eda.eda_findpeaks" title="neurokit2.eda.eda_findpeaks"><code class="xref py py-func docutils literal notranslate"><span class="pre">eda_findpeaks()</span></code></a>),
@@ -588,13 +565,7 @@ as well as the signals’ sampling rate.</p></li>
 <span class="gp">In [4]: </span><span class="n">nk</span><span class="o">.</span><span class="n">eda_plot</span><span class="p">(</span><span class="n">signals</span><span class="p">,</span> <span class="n">info</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="savefig/p_eda_process.png"><img alt="savefig/p_eda_process.png" src="savefig/p_eda_process.png" />
-<aside class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">D:\a\NeuroKit\NeuroKit\neurokit2\eda\eda_process.py:docstring of neurokit2.eda.eda_process.eda_process</span>, line 12)</p>
-<p>Cannot scale image!
-  Could not get size from &quot;savefig/p_eda_process.png&quot;:
-  [Errno 2] No such file or directory: 'D:\\a\\NeuroKit\\NeuroKit\\docs\\savefig\\p_eda_process.png'</p>
-</aside>
+<a class="reference internal image-reference" href="../_images/p_eda_process.png"><img alt="../_images/p_eda_process.png" src="../_images/p_eda_process.png" style="width: 640.0px; height: 480.0px;" />
 </a>
 </dd></dl>
 
@@ -720,13 +691,7 @@ Defaults to True.</p></li>
 <span class="gp">In [4]: </span><span class="n">nk</span><span class="o">.</span><span class="n">eda_plot</span><span class="p">(</span><span class="n">eda_signals</span><span class="p">,</span> <span class="n">info</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="savefig/p_eda_plot1.png"><img alt="savefig/p_eda_plot1.png" src="savefig/p_eda_plot1.png" />
-<aside class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">D:\a\NeuroKit\NeuroKit\neurokit2\eda\eda_plot.py:docstring of neurokit2.eda.eda_plot.eda_plot</span>, line 12)</p>
-<p>Cannot scale image!
-  Could not get size from &quot;savefig/p_eda_plot1.png&quot;:
-  [Errno 2] No such file or directory: 'D:\\a\\NeuroKit\\NeuroKit\\docs\\savefig\\p_eda_plot1.png'</p>
-</aside>
+<a class="reference internal image-reference" href="../_images/p_eda_plot1.png"><img alt="../_images/p_eda_plot1.png" src="../_images/p_eda_plot1.png" style="width: 640.0px; height: 480.0px;" />
 </a>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
@@ -773,13 +738,7 @@ allows generating multiple version of the same signal distorted by different ran
 <span class="gp">In [4]: </span><span class="n">fig</span> <span class="o">=</span> <span class="n">nk</span><span class="o">.</span><span class="n">signal_plot</span><span class="p">(</span><span class="n">eda</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="savefig/p_eda_simulate1.png"><img alt="savefig/p_eda_simulate1.png" src="savefig/p_eda_simulate1.png" />
-<aside class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">D:\a\NeuroKit\NeuroKit\neurokit2\eda\eda_simulate.py:docstring of neurokit2.eda.eda_simulate.eda_simulate</span>, line 12)</p>
-<p>Cannot scale image!
-  Could not get size from &quot;savefig/p_eda_simulate1.png&quot;:
-  [Errno 2] No such file or directory: 'D:\\a\\NeuroKit\\NeuroKit\\docs\\savefig\\p_eda_simulate1.png'</p>
-</aside>
+<a class="reference internal image-reference" href="../_images/p_eda_simulate1.png"><img alt="../_images/p_eda_simulate1.png" src="../_images/p_eda_simulate1.png" style="width: 640.0px; height: 480.0px;" />
 </a>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
@@ -844,13 +803,7 @@ is no high enough frequency to remove).</p></li>
 <span class="gp">In [6]: </span><span class="n">nk</span><span class="o">.</span><span class="n">signal_plot</span><span class="p">([</span><span class="n">eda</span><span class="p">,</span> <span class="n">eda_clean1</span><span class="p">,</span> <span class="n">eda_clean2</span><span class="p">],</span> <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Raw&quot;</span><span class="p">,</span> <span class="s2">&quot;NeuroKit&quot;</span><span class="p">,</span> <span class="s2">&quot;BioSPPy&quot;</span><span class="p">])</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="savefig/p_eda_clean.png"><img alt="savefig/p_eda_clean.png" src="savefig/p_eda_clean.png" />
-<aside class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">D:\a\NeuroKit\NeuroKit\neurokit2\eda\eda_clean.py:docstring of neurokit2.eda.eda_clean.eda_clean</span>, line 18)</p>
-<p>Cannot scale image!
-  Could not get size from &quot;savefig/p_eda_clean.png&quot;:
-  [Errno 2] No such file or directory: 'D:\\a\\NeuroKit\\NeuroKit\\docs\\savefig\\p_eda_clean.png'</p>
-</aside>
+<a class="reference internal image-reference" href="../_images/p_eda_clean.png"><img alt="../_images/p_eda_clean.png" src="../_images/p_eda_clean.png" style="width: 640.0px; height: 480.0px;" />
 </a>
 </dd></dl>
 
@@ -933,21 +886,9 @@ for unclear reasons. Please help.</p>
 <span class="gp">In [10]: </span><span class="n">nk</span><span class="o">.</span><span class="n">signal_plot</span><span class="p">([</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">p3</span><span class="p">],</span> <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;SmoothMedian&quot;</span><span class="p">,</span> <span class="s2">&quot;Highpass&quot;</span><span class="p">,</span> <span class="s2">&quot;Sparse&quot;</span><span class="p">])</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="savefig/p_eda_phasic1.png"><img alt="savefig/p_eda_phasic1.png" src="savefig/p_eda_phasic1.png" />
-<aside class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">D:\a\NeuroKit\NeuroKit\neurokit2\eda\eda_phasic.py:docstring of neurokit2.eda.eda_phasic.eda_phasic</span>, line 30)</p>
-<p>Cannot scale image!
-  Could not get size from &quot;savefig/p_eda_phasic1.png&quot;:
-  [Errno 2] No such file or directory: 'D:\\a\\NeuroKit\\NeuroKit\\docs\\savefig\\p_eda_phasic1.png'</p>
-</aside>
+<a class="reference internal image-reference" href="../_images/p_eda_phasic1.png"><img alt="../_images/p_eda_phasic1.png" src="../_images/p_eda_phasic1.png" style="width: 640.0px; height: 480.0px;" />
 </a>
-<a class="reference internal image-reference" href="savefig/p_eda_phasic2.png"><img alt="savefig/p_eda_phasic2.png" src="savefig/p_eda_phasic2.png" />
-<aside class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">D:\a\NeuroKit\NeuroKit\neurokit2\eda\eda_phasic.py:docstring of neurokit2.eda.eda_phasic.eda_phasic</span>, line 34)</p>
-<p>Cannot scale image!
-  Could not get size from &quot;savefig/p_eda_phasic2.png&quot;:
-  [Errno 2] No such file or directory: 'D:\\a\\NeuroKit\\NeuroKit\\docs\\savefig\\p_eda_phasic2.png'</p>
-</aside>
+<a class="reference internal image-reference" href="../_images/p_eda_phasic2.png"><img alt="../_images/p_eda_phasic2.png" src="../_images/p_eda_phasic2.png" style="width: 640.0px; height: 480.0px;" />
 </a>
 <p><strong>Example 2</strong>: Real data.</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [11]: </span><span class="n">eda_signal</span> <span class="o">=</span> <span class="n">nk</span><span class="o">.</span><span class="n">data</span><span class="p">(</span><span class="s2">&quot;bio_eventrelated_100hz&quot;</span><span class="p">)[</span><span class="s2">&quot;EDA&quot;</span><span class="p">]</span>
@@ -959,13 +900,7 @@ for unclear reasons. Please help.</p>
 <span class="gp">In [14]: </span><span class="n">nk</span><span class="o">.</span><span class="n">signal_plot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">standardize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="savefig/p_eda_phasic2.png"><img alt="savefig/p_eda_phasic2.png" src="savefig/p_eda_phasic2.png" />
-<aside class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">D:\a\NeuroKit\NeuroKit\neurokit2\eda\eda_phasic.py:docstring of neurokit2.eda.eda_phasic.eda_phasic</span>, line 12)</p>
-<p>Cannot scale image!
-  Could not get size from &quot;savefig/p_eda_phasic2.png&quot;:
-  [Errno 2] No such file or directory: 'D:\\a\\NeuroKit\\NeuroKit\\docs\\savefig\\p_eda_phasic2.png'</p>
-</aside>
+<a class="reference internal image-reference" href="../_images/p_eda_phasic2.png"><img alt="../_images/p_eda_phasic2.png" src="../_images/p_eda_phasic2.png" style="width: 640.0px; height: 480.0px;" />
 </a>
 <p class="rubric">References</p>
 <ul class="simple">
@@ -1048,13 +983,7 @@ as “1” in lists of zeros with the same length as <code class="docutils liter
 <span class="gp">   ...: </span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="savefig/p_eda_peaks.png"><img alt="savefig/p_eda_peaks.png" src="savefig/p_eda_peaks.png" />
-<aside class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">D:\a\NeuroKit\NeuroKit\neurokit2\eda\eda_peaks.py:docstring of neurokit2.eda.eda_peaks.eda_peaks</span>, line 29)</p>
-<p>Cannot scale image!
-  Could not get size from &quot;savefig/p_eda_peaks.png&quot;:
-  [Errno 2] No such file or directory: 'D:\\a\\NeuroKit\\NeuroKit\\docs\\savefig\\p_eda_peaks.png'</p>
-</aside>
+<a class="reference internal image-reference" href="../_images/p_eda_peaks.png"><img alt="../_images/p_eda_peaks.png" src="../_images/p_eda_peaks.png" style="width: 640.0px; height: 480.0px;" />
 </a>
 <p class="rubric">References</p>
 <ul class="simple">
@@ -1122,13 +1051,7 @@ samples at which the SCR onset and the SCR peaks occur. Accessible with the keys
 <span class="gp">In [8]: </span><span class="n">nk</span><span class="o">.</span><span class="n">events_plot</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="s2">&quot;SCR_Peaks&quot;</span><span class="p">],</span> <span class="n">eda_phasic</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="savefig/p_eda_fixpeaks.png"><img alt="savefig/p_eda_fixpeaks.png" src="savefig/p_eda_fixpeaks.png" />
-<aside class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">D:\a\NeuroKit\NeuroKit\neurokit2\eda\eda_fixpeaks.py:docstring of neurokit2.eda.eda_fixpeaks.eda_fixpeaks</span>, line 22)</p>
-<p>Cannot scale image!
-  Could not get size from &quot;savefig/p_eda_fixpeaks.png&quot;:
-  [Errno 2] No such file or directory: 'D:\\a\\NeuroKit\\NeuroKit\\docs\\savefig\\p_eda_fixpeaks.png'</p>
-</aside>
+<a class="reference internal image-reference" href="../_images/p_eda_fixpeaks.png"><img alt="../_images/p_eda_fixpeaks.png" src="../_images/p_eda_fixpeaks.png" style="width: 640.0px; height: 480.0px;" />
 </a>
 </dd></dl>
 
@@ -1156,17 +1079,12 @@ containing all epochs, usually obtained via <code class="docutils literal notran
 by the <cite>Label</cite> column (if not present, by the <cite>Index</cite> column). The analyzed features consist
 the following:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;EDA_SCR&quot;</span></code>: indication of whether Skin Conductance Response (SCR) occurs following the event
-(1 if an SCR onset is present and 0 if absent) and if so, its corresponding peak amplitude,
-time of peak, rise and recovery time. If there is no occurrence of SCR, nans are displayed
-for the below features.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;EDA_Peak_Amplitude&quot;</span></code>: the maximum amplitude of the phasic component of the signal.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;SCR_Peak_Amplitude&quot;</span></code>: the peak amplitude of the first SCR in each epoch.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;SCR_Peak_Amplitude_Time&quot;</span></code>: the timepoint of each first SCR peak amplitude.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;SCR_RiseTime&quot;</span></code>: the risetime of each first SCR i.e., the time it takes for SCR to
-reach peak amplitude from onset.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;SCR_RecoveryTime&quot;</span></code>: the half-recovery time of each first SCR i.e., the time it takes
-for SCR to decrease to half amplitude.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EDA_SCR</span></code>: indication of whether Skin Conductance Response (SCR) occurs following the event (1 if an SCR onset is present and 0 if absent) and if so, its corresponding peak amplitude, time of peak, rise and recovery time. If there is no occurrence of SCR, nans are displayed for the below features.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EDA_Peak_Amplitude</span></code>: The maximum amplitude of the phasic component of the signal.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SCR_Peak_Amplitude</span></code>: The peak amplitude of the first SCR in each epoch.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SCR_Peak_Amplitude_Time</span></code>: The timepoint of each first SCR peak amplitude.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SCR_RiseTime</span></code>: The risetime of each first SCR i.e., the time it takes for SCR to reach peak amplitude from onset.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SCR_RecoveryTime</span></code>: The half-recovery time of each first SCR i.e., the time it takes for SCR to decrease to half amplitude.</p></li>
 </ul>
 </p>
 </dd>
@@ -1195,8 +1113,8 @@ for SCR to decrease to half amplitude.</p></li>
 <span class="gp">In [5]: </span><span class="n">nk</span><span class="o">.</span><span class="n">eda_eventrelated</span><span class="p">(</span><span class="n">epochs</span><span class="p">)</span>
 <span class="gh">Out[5]: </span>
 <span class="go">  Label  Event_Onset  ...  SCR_RiseTime  SCR_RecoveryTime</span>
-<span class="go">1     1         5000  ...         0.359            1045.0</span>
-<span class="go">2     2        10000  ...         0.363            1246.0</span>
+<span class="go">1     1         5000  ...         0.360             0.531</span>
+<span class="go">2     2        10000  ...         0.361             0.567</span>
 <span class="go">3     3        15000  ...           NaN               NaN</span>
 
 <span class="go">[3 rows x 8 columns]</span>
@@ -1223,10 +1141,10 @@ for SCR to decrease to half amplitude.</p></li>
 <span class="gp">In [11]: </span><span class="n">nk</span><span class="o">.</span><span class="n">eda_eventrelated</span><span class="p">(</span><span class="n">epochs</span><span class="p">)</span>
 <span class="gh">Out[11]: </span>
 <span class="go">  Label Condition  ...  SCR_RiseTime  SCR_RecoveryTime</span>
-<span class="go">1     1  Negative  ...          1.74             673.0</span>
+<span class="go">1     1  Negative  ...          1.74              2.02</span>
 <span class="go">2     2   Neutral  ...           NaN               NaN</span>
 <span class="go">3     3   Neutral  ...           NaN               NaN</span>
-<span class="go">4     4  Negative  ...          1.73             477.0</span>
+<span class="go">4     4  Negative  ...          1.73              1.93</span>
 
 <span class="go">[4 rows x 9 columns]</span>
 </pre></div>
@@ -1254,15 +1172,15 @@ sets of separately processed DataFrames.</p></li>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><p><em>DataFrame</em> – A dataframe containing the analyzed EDA features. The analyzed
-features consist of the following:
-* <code class="docutils literal notranslate"><span class="pre">&quot;SCR_Peaks_N&quot;</span></code>: the number of occurrences of Skin Conductance Response (SCR).
-* <code class="docutils literal notranslate"><span class="pre">&quot;SCR_Peaks_Amplitude_Mean&quot;</span></code>: the mean amplitude of the SCR peak occurrences.
-* <code class="docutils literal notranslate"><span class="pre">&quot;EDA_Tonic_SD&quot;</span></code>: the mean amplitude of the SCR peak occurrences.
-* <code class="docutils literal notranslate"><span class="pre">&quot;EDA_Sympathetic&quot;</span></code>: see <a class="reference internal" href="#neurokit2.eda.eda_sympathetic" title="neurokit2.eda.eda_sympathetic"><code class="xref py py-func docutils literal notranslate"><span class="pre">eda_sympathetic()</span></code></a> (only computed if signal duration</p>
-<blockquote>
-<div><p>&gt; 64 sec).</p>
-</div></blockquote>
+features consist of the following:</p>
 <ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SCR_Peaks_N</span></code>: The number of occurrences of Skin Conductance Response (SCR).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SCR_Peaks_Amplitude_Mean</span></code>: The mean amplitude of the SCR peak occurrences.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EDA_Tonic_SD</span></code>: The mean amplitude of the SCR peak occurrences.</p></li>
+</ul>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;EDA_Sympathetic&quot;</span></code>: see <a class="reference internal" href="#neurokit2.eda.eda_sympathetic" title="neurokit2.eda.eda_sympathetic"><code class="xref py py-func docutils literal notranslate"><span class="pre">eda_sympathetic()</span></code></a> (only computed if signal duration
+&gt; 64 sec).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">&quot;EDA_Autocorrelation&quot;</span></code>: see <a class="reference internal" href="#neurokit2.eda.eda_autocor" title="neurokit2.eda.eda_autocor"><code class="xref py py-func docutils literal notranslate"><span class="pre">eda_autocor()</span></code></a> (only computed if signal duration
 &gt; 30 sec).</p></li>
 </ul>
@@ -1332,9 +1250,14 @@ frequency band.</p></li>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p><em>dict</em> – A dictionary containing the EDA sympathetic indexes, accessible by keys
+<dd class="field-odd"><p><p><em>dict</em> – A dictionary containing the EDA sympathetic indexes, accessible by keys
 <code class="docutils literal notranslate"><span class="pre">&quot;EDA_Sympathetic&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;EDA_SympatheticN&quot;</span></code> (normalized, obtained by dividing EDA_Symp
 by total power).</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">EDA_Sympathetic</span></code>: Derived from Posada-Quintero et al. (2016), who argue that dynamics of the sympathetic component of EDA signal is represented in the frequency band of 0.045-0.25Hz.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EDA_SympatheticN</span></code>: normalized version of “EDA_Sympathetic” obtained by dividing EDA_Sympathetic by total power</p></li>
+</ul>
+</p>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
@@ -1355,13 +1278,7 @@ by total power).</p>
 <span class="go"> &#39;EDA_SympatheticN&#39;: 0.0019044764295758339}</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="savefig/p_eda_sympathetic1.png"><img alt="savefig/p_eda_sympathetic1.png" src="savefig/p_eda_sympathetic1.png" />
-<aside class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">D:\a\NeuroKit\NeuroKit\neurokit2\eda\eda_sympathetic.py:docstring of neurokit2.eda.eda_sympathetic.eda_sympathetic</span>, line 20)</p>
-<p>Cannot scale image!
-  Could not get size from &quot;savefig/p_eda_sympathetic1.png&quot;:
-  [Errno 2] No such file or directory: 'D:\\a\\NeuroKit\\NeuroKit\\docs\\savefig\\p_eda_sympathetic1.png'</p>
-</aside>
+<a class="reference internal image-reference" href="../_images/p_eda_sympathetic1.png"><img alt="../_images/p_eda_sympathetic1.png" src="../_images/p_eda_sympathetic1.png" style="width: 640.0px; height: 480.0px;" />
 </a>
 <p class="rubric">References</p>
 <ul class="simple">
@@ -1413,7 +1330,7 @@ correlations approaching 1, as recommended by Halem et al. (2020).</p></li>
 <span class="gp">In [4]: </span><span class="n">cor</span> <span class="o">=</span> <span class="n">nk</span><span class="o">.</span><span class="n">eda_autocor</span><span class="p">(</span><span class="n">eda_cleaned</span><span class="p">)</span>
 
 <span class="gp">In [5]: </span><span class="n">cor</span>
-<span class="gh">Out[5]: </span><span class="go">-0.23638782596255398</span>
+<span class="gh">Out[5]: </span><span class="go">-0.2629476501958525</span>
 </pre></div>
 </div>
 <p class="rubric">References</p>
@@ -1465,16 +1382,10 @@ welcome.</p>
 <span class="gp">In [3]: </span><span class="n">eda_cleaned</span> <span class="o">=</span> <span class="n">nk</span><span class="o">.</span><span class="n">eda_clean</span><span class="p">(</span><span class="n">eda_signal</span><span class="p">,</span> <span class="n">sampling_rate</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
 
 <span class="gp">In [4]: </span><span class="n">nk</span><span class="o">.</span><span class="n">eda_changepoints</span><span class="p">(</span><span class="n">eda_cleaned</span><span class="p">,</span> <span class="n">penalty</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="gh">Out[4]: </span><span class="go">19</span>
+<span class="gh">Out[4]: </span><span class="go">9</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="savefig/p_eda_changepoints1.png"><img alt="savefig/p_eda_changepoints1.png" src="savefig/p_eda_changepoints1.png" />
-<aside class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">D:\a\NeuroKit\NeuroKit\neurokit2\eda\eda_changepoints.py:docstring of neurokit2.eda.eda_changepoints.eda_changepoints</span>, line 14)</p>
-<p>Cannot scale image!
-  Could not get size from &quot;savefig/p_eda_changepoints1.png&quot;:
-  [Errno 2] No such file or directory: 'D:\\a\\NeuroKit\\NeuroKit\\docs\\savefig\\p_eda_changepoints1.png'</p>
-</aside>
+<a class="reference internal image-reference" href="../_images/p_eda_changepoints1.png"><img alt="../_images/p_eda_changepoints1.png" src="../_images/p_eda_changepoints1.png" style="width: 640.0px; height: 480.0px;" />
 </a>
 <p class="rubric">References</p>
 <ul class="simple">
@@ -1547,13 +1458,7 @@ samples at which the SCR onset and the SCR peaks occur. Accessible with the keys
 <span class="gp">   ....: </span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="savefig/p_eda_findpeaks.png"><img alt="savefig/p_eda_findpeaks.png" src="savefig/p_eda_findpeaks.png" />
-<aside class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">D:\a\NeuroKit\NeuroKit\neurokit2\eda\eda_findpeaks.py:docstring of neurokit2.eda.eda_findpeaks.eda_findpeaks</span>, line 30)</p>
-<p>Cannot scale image!
-  Could not get size from &quot;savefig/p_eda_findpeaks.png&quot;:
-  [Errno 2] No such file or directory: 'D:\\a\\NeuroKit\\NeuroKit\\docs\\savefig\\p_eda_findpeaks.png'</p>
-</aside>
+<a class="reference internal image-reference" href="../_images/p_eda_findpeaks.png"><img alt="../_images/p_eda_findpeaks.png" src="../_images/p_eda_findpeaks.png" style="width: 640.0px; height: 480.0px;" />
 </a>
 <p class="rubric">References</p>
 <ul class="simple">
@@ -1613,7 +1518,8 @@ journal of translational engineering in health and medicine, 6, 2800711.</p></li
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -1738,8 +1644,8 @@ By <a href="https://dominiquemakowski.github.io/">Dominique Makowski</a> and the
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
 
   <footer class="bd-footer">
   </footer>

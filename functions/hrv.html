@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>HRV &#8212; NeuroKit2 0.2.9 documentation</title>
+    <title>HRV &#8212; NeuroKit2 0.2.10 documentation</title>
   
   
   
@@ -16,30 +16,33 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-
-  
-  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script src="../_static/documentation_options.js?v=1b33a64c"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/documentation_options.js?v=1db4c2ab"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
@@ -52,6 +55,7 @@
     <link rel="prev" title="PPG" href="ppg.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.2.10" />
   </head>
   
   
@@ -67,19 +71,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -87,7 +80,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -95,8 +87,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -112,7 +104,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -141,22 +134,18 @@
       
     
     
-    <img src="../_static/neurokit.png" class="logo__image only-light" alt="NeuroKit2 0.2.9 documentation - Home"/>
-    <script>document.write(`<img src="../_static/neurokit.png" class="logo__image only-dark" alt="NeuroKit2 0.2.9 documentation - Home"/>`);</script>
+    <img src="../_static/neurokit.png" class="logo__image only-light" alt="NeuroKit2 0.2.10 documentation - Home"/>
+    <img src="../_static/neurokit.png" class="logo__image only-dark pst-js-only" alt="NeuroKit2 0.2.10 documentation - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Menu</span></p>
@@ -165,6 +154,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../authors.html">Authors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cite_us.html">Cite us</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../codebook.html">Codebook</a></li>
+
 <li class="toctree-l1 has-children"><a class="reference internal" href="../examples/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../examples/bio_eventrelated/bio_eventrelated.html">Event-related Analysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../examples/bio_intervalrelated/bio_intervalrelated.html">Interval-related Analysis</a></li>
@@ -400,24 +391,16 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
+</button>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -551,13 +534,7 @@ least twice as high as the highest frequency in vhf. By default 1000.</p></li>
 <span class="gp">In [7]: </span><span class="n">hrv_indices</span> <span class="o">=</span> <span class="n">nk</span><span class="o">.</span><span class="n">hrv</span><span class="p">(</span><span class="n">peaks</span><span class="p">,</span> <span class="n">sampling_rate</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="savefig/p_hrv1.png"><img alt="savefig/p_hrv1.png" src="savefig/p_hrv1.png" />
-<aside class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">D:\a\NeuroKit\NeuroKit\neurokit2\hrv\hrv.py:docstring of neurokit2.hrv.hrv.hrv</span>, line 21)</p>
-<p>Cannot scale image!
-  Could not get size from &quot;savefig/p_hrv1.png&quot;:
-  [Errno 2] No such file or directory: 'D:\\a\\NeuroKit\\NeuroKit\\docs\\savefig\\p_hrv1.png'</p>
-</aside>
+<a class="reference internal image-reference" href="../_images/p_hrv1.png"><img alt="../_images/p_hrv1.png" src="../_images/p_hrv1.png" style="width: 640.0px; height: 480.0px;" />
 </a>
 <p><strong>Example 2</strong>: Compute HRV directly from processed data</p>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="go"># Download data</span>
@@ -656,10 +633,10 @@ median of the RR intervals (<strong>MedianNN</strong>).</p></li>
 Frequency (LF/HF) Ratio (Sollers et al., 2007).</p></li>
 <li><p><strong>Prc20NN</strong>: The 20th percentile of the RR intervals (Han, 2017; Hovsepian, 2015).</p></li>
 <li><p><strong>Prc80NN</strong>: The 80th percentile of the RR intervals (Han, 2017; Hovsepian, 2015).</p></li>
-<li><p><strong>pNN50</strong>: The proportion of RR intervals greater than 50ms, out of the total number of
-RR intervals.</p></li>
-<li><p><strong>pNN20</strong>: The proportion of RR intervals greater than 20ms, out of the total number of
-RR intervals.</p></li>
+<li><p><strong>pNN50</strong>: The percentage of absolute differences in successive RR intervals greater than
+50 ms (Bigger et al., 1988; Mietus et al., 2002).</p></li>
+<li><p><strong>pNN20</strong>: The percentage of absolute differences in successive RR intervals greater than
+20 ms (Mietus et al., 2002).</p></li>
 <li><p><strong>MinNN</strong>: The minimum of the RR intervals (Parent, 2019; Subramaniam, 2022).</p></li>
 <li><p><strong>MaxNN</strong>: The maximum of the RR intervals (Parent, 2019; Subramaniam, 2022).</p></li>
 <li><p><strong>TINN</strong>: A geometrical parameter of the HRV, or more specifically, the baseline width of
@@ -689,16 +666,13 @@ the height of the RR intervals histogram.</p></li>
 <span class="gp">In [4]: </span><span class="n">hrv</span> <span class="o">=</span> <span class="n">nk</span><span class="o">.</span><span class="n">hrv_time</span><span class="p">(</span><span class="n">peaks</span><span class="p">,</span> <span class="n">sampling_rate</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="savefig/p_hrv_time.png"><img alt="savefig/p_hrv_time.png" src="savefig/p_hrv_time.png" />
-<aside class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">D:\a\NeuroKit\NeuroKit\neurokit2\hrv\hrv_time.py:docstring of neurokit2.hrv.hrv_time.hrv_time</span>, line 15)</p>
-<p>Cannot scale image!
-  Could not get size from &quot;savefig/p_hrv_time.png&quot;:
-  [Errno 2] No such file or directory: 'D:\\a\\NeuroKit\\NeuroKit\\docs\\savefig\\p_hrv_time.png'</p>
-</aside>
+<a class="reference internal image-reference" href="../_images/p_hrv_time.png"><img alt="../_images/p_hrv_time.png" src="../_images/p_hrv_time.png" style="width: 640.0px; height: 480.0px;" />
 </a>
 <p class="rubric">References</p>
 <ul class="simple">
+<li><p>Bigger Jr, J. T., Kleiger, R. E., Fleiss, J. L., Rolnitzky, L. M., Steinman, R. C., &amp; Miller,
+J. P. (1988). Components of heart rate variability measured during healing of acute myocardial
+infarction. The American journal of cardiology, 61(4), 208-215.</p></li>
 <li><p>Pham, T., Lau, Z. J., Chen, S. H. A., &amp; Makowski, D. (2021). Heart Rate Variability in
 Psychology: A Review of HRV Indices and an Analysis Tutorial. Sensors, 21(12), 3998.
 <a class="reference external" href="https://doi.org/10.3390/s21123998">https://doi.org/10.3390/s21123998</a></p></li>
@@ -711,6 +685,8 @@ stress with a wearable device. Computers in Industry, 90, 42-49.</p></li>
 towards a gold standard for continuous stress assessment in the mobile environment. In
 Proceedings of the 2015 ACM international joint conference on pervasive and ubiquitous
 computing (pp. 493-504).</p></li>
+<li><p>Mietus, J. E., Peng, C. K., Henry, I., Goldsmith, R. L., &amp; Goldberger, A. L. (2002). The pNNx
+files: re-examining a widely used heart rate variability measure. Heart, 88(4), 378-380.</p></li>
 <li><p>Parent, M., Tiwari, A., Albuquerque, I., Gagnon, J. F., Lafond, D., Tremblay, S., &amp; Falk, T.
 H. (2019). A multimodal approach to improve the robustness of physiological stress prediction
 during physical activity. In 2019 IEEE International Conference on Systems, Man and
@@ -790,7 +766,20 @@ interpolated or when using the <code class="docutils literal notranslate"><span 
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>DataFrame</em> – Contains frequency domain HRV metrics.</p>
+<dd class="field-even"><p><p><em>DataFrame</em> – DataFrame consisting of the computed HRV frequency metrics, which includes:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">HRV_ULF</span></code>: The spectral power of ultra low frequencies (by default, .0 to .0033 Hz). Very long signals are required for this to index to be extracted, otherwise, will return NaN.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HRV_VLF</span></code>: The spectral power of very low frequencies (by default, .0033 to .04 Hz).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HRV_LF</span></code>: The spectral power of low frequencies (by default, .04 to .15 Hz).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HRV_HF</span></code>: The spectral power of high frequencies (by default, .15 to .4 Hz).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HRV_VHF</span></code>: The spectral power of very high frequencies (by default, .4 to .5 Hz).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HRV_TP</span></code>: The total spectral power.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HRV_LFHF</span></code>: The ratio obtained by dividing the low frequency power by the high frequency power.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HRV_LFn</span></code>: The normalized low frequency, obtained by dividing the low frequency power by the total power.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HRV_HFn</span></code>: The normalized high frequency, obtained by dividing the low frequency power by the total power.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HRV_LnHF</span></code>: The log transformed HF.</p></li>
+</ul>
+</p>
 </dd>
 </dl>
 <div class="admonition seealso">
@@ -810,49 +799,25 @@ interpolated or when using the <code class="docutils literal notranslate"><span 
 <span class="gp">In [4]: </span><span class="n">hrv_welch</span> <span class="o">=</span> <span class="n">nk</span><span class="o">.</span><span class="n">hrv_frequency</span><span class="p">(</span><span class="n">peaks</span><span class="p">,</span> <span class="n">sampling_rate</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">psd_method</span><span class="o">=</span><span class="s2">&quot;welch&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="savefig/p_hrv_freq1.png"><img alt="savefig/p_hrv_freq1.png" src="savefig/p_hrv_freq1.png" />
-<aside class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">D:\a\NeuroKit\NeuroKit\neurokit2\hrv\hrv_frequency.py:docstring of neurokit2.hrv.hrv_frequency.hrv_frequency</span>, line 15)</p>
-<p>Cannot scale image!
-  Could not get size from &quot;savefig/p_hrv_freq1.png&quot;:
-  [Errno 2] No such file or directory: 'D:\\a\\NeuroKit\\NeuroKit\\docs\\savefig\\p_hrv_freq1.png'</p>
-</aside>
+<a class="reference internal image-reference" href="../_images/p_hrv_freq1.png"><img alt="../_images/p_hrv_freq1.png" src="../_images/p_hrv_freq1.png" style="width: 640.0px; height: 480.0px;" />
 </a>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="go"># Using method =&quot;burg&quot;</span>
 <span class="gp">In [5]: </span><span class="n">hrv_burg</span> <span class="o">=</span> <span class="n">nk</span><span class="o">.</span><span class="n">hrv_frequency</span><span class="p">(</span><span class="n">peaks</span><span class="p">,</span> <span class="n">sampling_rate</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">psd_method</span><span class="o">=</span><span class="s2">&quot;burg&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="savefig/p_hrv_freq2.png"><img alt="savefig/p_hrv_freq2.png" src="savefig/p_hrv_freq2.png" />
-<aside class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">D:\a\NeuroKit\NeuroKit\neurokit2\hrv\hrv_frequency.py:docstring of neurokit2.hrv.hrv_frequency.hrv_frequency</span>, line 7)</p>
-<p>Cannot scale image!
-  Could not get size from &quot;savefig/p_hrv_freq2.png&quot;:
-  [Errno 2] No such file or directory: 'D:\\a\\NeuroKit\\NeuroKit\\docs\\savefig\\p_hrv_freq2.png'</p>
-</aside>
+<a class="reference internal image-reference" href="../_images/p_hrv_freq2.png"><img alt="../_images/p_hrv_freq2.png" src="../_images/p_hrv_freq2.png" style="width: 640.0px; height: 480.0px;" />
 </a>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="go"># Using method = &quot;lomb&quot; (requires installation of astropy)</span>
 <span class="gp">In [6]: </span><span class="n">hrv_lomb</span> <span class="o">=</span> <span class="n">nk</span><span class="o">.</span><span class="n">hrv_frequency</span><span class="p">(</span><span class="n">peaks</span><span class="p">,</span> <span class="n">sampling_rate</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">psd_method</span><span class="o">=</span><span class="s2">&quot;lomb&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="savefig/p_hrv_freq3.png"><img alt="savefig/p_hrv_freq3.png" src="savefig/p_hrv_freq3.png" />
-<aside class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">D:\a\NeuroKit\NeuroKit\neurokit2\hrv\hrv_frequency.py:docstring of neurokit2.hrv.hrv_frequency.hrv_frequency</span>, line 7)</p>
-<p>Cannot scale image!
-  Could not get size from &quot;savefig/p_hrv_freq3.png&quot;:
-  [Errno 2] No such file or directory: 'D:\\a\\NeuroKit\\NeuroKit\\docs\\savefig\\p_hrv_freq3.png'</p>
-</aside>
+<a class="reference internal image-reference" href="../_images/p_hrv_freq3.png"><img alt="../_images/p_hrv_freq3.png" src="../_images/p_hrv_freq3.png" style="width: 640.0px; height: 480.0px;" />
 </a>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="go"># Using method=&quot;multitapers&quot;</span>
 <span class="gp">In [7]: </span><span class="n">hrv_multitapers</span> <span class="o">=</span> <span class="n">nk</span><span class="o">.</span><span class="n">hrv_frequency</span><span class="p">(</span><span class="n">peaks</span><span class="p">,</span> <span class="n">sampling_rate</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">psd_method</span><span class="o">=</span><span class="s2">&quot;multitapers&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="savefig/p_hrv_freq4.png"><img alt="savefig/p_hrv_freq4.png" src="savefig/p_hrv_freq4.png" />
-<aside class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">D:\a\NeuroKit\NeuroKit\neurokit2\hrv\hrv_frequency.py:docstring of neurokit2.hrv.hrv_frequency.hrv_frequency</span>, line 7)</p>
-<p>Cannot scale image!
-  Could not get size from &quot;savefig/p_hrv_freq4.png&quot;:
-  [Errno 2] No such file or directory: 'D:\\a\\NeuroKit\\NeuroKit\\docs\\savefig\\p_hrv_freq4.png'</p>
-</aside>
+<a class="reference internal image-reference" href="../_images/p_hrv_freq4.png"><img alt="../_images/p_hrv_freq4.png" src="../_images/p_hrv_freq4.png" style="width: 640.0px; height: 480.0px;" />
 </a>
 <p class="rubric">References</p>
 <ul class="simple">
@@ -984,7 +949,37 @@ default <code class="docutils literal notranslate"><span class="pre">False</span
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>DataFrame</em> – Contains non-linear HRV metrics.</p>
+<dd class="field-even"><p><p><em>DataFrame</em> – DataFrame consisting of the computed non-linear HRV metrics, which includes:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">HRV_SD1</span></code>: Standard deviation perpendicular to the line of identity. It is an index of short-term RR interval fluctuations, i.e., beat-to-beat variability. It is equivalent (although on another scale) to RMSSD, and therefore it is redundant to report correlation with both.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HRV_SD2</span></code>: Standard deviation along the identity line. Index of long-term HRV changes.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HRV_SD1SD2</span></code>: Ratio of SD1 to SD2. Describes the ratio of short term to long term variations in HRV.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HRV_S</span></code>: Area of ellipse described by *SD1* and *SD2* (``pi * SD1 * SD2``). It is proportional to *SD1SD2*.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HRV_CSI</span></code>: The Cardiac Sympathetic Index (Toichi, 1997) is a measure of cardiac sympathetic function independent of vagal activity, calculated by dividing the longitudinal variability of the Poincaré plot (``4*SD2``) by its transverse variability (``4*SD1``).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HRV_CVI</span></code>: The Cardiac Vagal Index (Toichi, 1997) is an index of cardiac parasympathetic function (vagal activity unaffected by sympathetic activity), and is equal equal to the logarithm of the product of longitudinal (``4*SD2``) and transverse variability (``4*SD1``).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HRV_CSI_Modified</span></code>: The modified CSI (Jeppesen, 2014) obtained by dividing the square of the longitudinal variability by its transverse variability.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HRV_GI</span></code>: Guzik’s Index, defined as the distance of points above line of identity (LI) to LI divided by the distance of all points in Poincaré plot to LI except those that are located on LI.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HRV_SI</span></code>: Slope Index, defined as the phase angle of points above LI divided by the phase angle of all points in Poincaré plot except those that are located on LI.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HRV_AI</span></code>: Area Index, defined as the cumulative area of the sectors corresponding to the points that are located above LI divided by the cumulative area of sectors corresponding to all points in the Poincaré plot except those that are located on LI.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HRV_PI</span></code>: Porta’s Index, defined as the number of points below LI divided by the total number of points in Poincaré plot except those that are located on LI.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HRV_SD1a</span></code>: Short-term variance of contributions of decelerations (prolongations of RR intervals), (Piskorski, 2011).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HRV_SD1d</span></code>: Short-term variance of contributions of accelerations (shortenings of RR intervals), (Piskorski, 2011).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HRV_C1a</span></code>: The contributions of heart rate accelerations to short-term HRV, (Piskorski, 2011).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HRV_C1d</span></code>: The contributions of heart rate decelerations to short-term HRV, (Piskorski, 2011).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HRV_SD2a</span></code>: Long-term variance of contributions of accelerations (shortenings of RR intervals), (Piskorski, 2011).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HRV_SD2d</span></code>: Long-term variance of contributions of decelerations (prolongations of RR intervals), (Piskorski, 2011).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HRV_C2a</span></code>: The contributions of heart rate accelerations to long-term HRV, (Piskorski, 2011).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HRV_C2d</span></code>: The contributions of heart rate decelerations to long-term HRV, (Piskorski, 2011).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HRV_SDNNa</span></code>: Total variance of contributions of accelerations (shortenings of RR intervals), (Piskorski, 2011).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HRV_SDNNd</span></code>: Total variance of contributions of decelerations (prolongations of RR intervals), (Piskorski, 2011).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HRV_Ca</span></code>: The total contributions of heart rate accelerations to HRV.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HRV_Cd</span></code>: The total contributions of heart rate decelerations to HRV.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HRV_PIP</span></code>: Percentage of inflection points of the RR intervals series.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HRV_IALS</span></code>: Inverse of the average length of the acceleration/deceleration segments.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HRV_PSS</span></code>: Percentage of short segments.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HRV_PAS</span></code>: Percentage of NN intervals in alternation segments.</p></li>
+</ul>
+</p>
 </dd>
 </dl>
 <div class="admonition seealso">
@@ -1004,13 +999,7 @@ default <code class="docutils literal notranslate"><span class="pre">False</span
 <span class="gp">In [4]: </span><span class="n">hrv</span> <span class="o">=</span> <span class="n">nk</span><span class="o">.</span><span class="n">hrv_nonlinear</span><span class="p">(</span><span class="n">peaks</span><span class="p">,</span> <span class="n">sampling_rate</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="savefig/p_hrv_nonlinear1.png"><img alt="savefig/p_hrv_nonlinear1.png" src="savefig/p_hrv_nonlinear1.png" />
-<aside class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">D:\a\NeuroKit\NeuroKit\neurokit2\hrv\hrv_nonlinear.py:docstring of neurokit2.hrv.hrv_nonlinear.hrv_nonlinear</span>, line 15)</p>
-<p>Cannot scale image!
-  Could not get size from &quot;savefig/p_hrv_nonlinear1.png&quot;:
-  [Errno 2] No such file or directory: 'D:\\a\\NeuroKit\\NeuroKit\\docs\\savefig\\p_hrv_nonlinear1.png'</p>
-</aside>
+<a class="reference internal image-reference" href="../_images/p_hrv_nonlinear1.png"><img alt="../_images/p_hrv_nonlinear1.png" src="../_images/p_hrv_nonlinear1.png" style="width: 800.0px; height: 800.0px;" />
 </a>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [5]: </span><span class="n">hrv</span>
 <span class="gh">Out[5]: </span>
@@ -1115,16 +1104,12 @@ set at 8.</p></li>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><p><strong>rsa</strong> (<em>dict</em>) – A dictionary containing the RSA features, which includes:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;RSA_P2T_Values&quot;</span></code>: the estimate of RSA during each breath cycle, produced by
-subtracting the shortest heart period (or RR interval) from the longest heart period in
-ms.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;RSA_P2T_Mean&quot;</span></code>: the mean peak-to-trough across all cycles in ms</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;RSA_P2T_Mean_log&quot;</span></code>: the logarithm of the mean of RSA estimates.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;RSA_P2T_SD&quot;</span></code>: the standard deviation of all RSA estimates.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;RSA_P2T_NoRSA&quot;</span></code>: the number of breath cycles
-from which RSA could not be calculated.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;RSA_PorgesBohrer&quot;</span></code>: the Porges-Bohrer estimate of RSA, optimal
-when the signal to noise ratio is low, in <code class="docutils literal notranslate"><span class="pre">ln(ms^2)</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RSA_P2T_Values</span></code>: The estimate of RSA during each breath cycle, produced by subtracting the shortest heart period (or RR interval) from the longest heart period in ms.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RSA_P2T_Mean</span></code>: The mean peak-to-trough across all cycles in ms.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RSA_P2T_Mean_log</span></code>: The logarithm of the mean of RSA estimates.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RSA_P2T_SD</span></code>: The standard deviation of all RSA estimates.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RSA_P2T_NoRSA</span></code>: The number of breath cycles from which RSA could not be calculated.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RSA_PorgesBohrer</span></code>: The Porges-Bohrer estimate of RSA, optimal when the signal to noise ratio is low, in ln(ms^2).</p></li>
 </ul>
 </p>
 </dd>
@@ -1175,13 +1160,7 @@ when the signal to noise ratio is low, in <code class="docutils literal notransl
 <span class="gp">In [8]: </span><span class="n">nk</span><span class="o">.</span><span class="n">signal_plot</span><span class="p">([</span><span class="n">ecg_signals</span><span class="p">[</span><span class="s2">&quot;ECG_Rate&quot;</span><span class="p">],</span> <span class="n">rsp_signals</span><span class="p">[</span><span class="s2">&quot;RSP_Rate&quot;</span><span class="p">],</span> <span class="n">rsa</span><span class="p">],</span> <span class="n">standardize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="savefig/hrv_rsa1.png"><img alt="savefig/hrv_rsa1.png" src="savefig/hrv_rsa1.png" />
-<aside class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">D:\a\NeuroKit\NeuroKit\neurokit2\hrv\hrv_rsa.py:docstring of neurokit2.hrv.hrv_rsa.hrv_rsa</span>, line 48)</p>
-<p>Cannot scale image!
-  Could not get size from &quot;savefig/hrv_rsa1.png&quot;:
-  [Errno 2] No such file or directory: 'D:\\a\\NeuroKit\\NeuroKit\\docs\\savefig\\hrv_rsa1.png'</p>
-</aside>
+<a class="reference internal image-reference" href="../_images/hrv_rsa1.png"><img alt="../_images/hrv_rsa1.png" src="../_images/hrv_rsa1.png" style="width: 640.0px; height: 480.0px;" />
 </a>
 <p class="rubric">References</p>
 <ul class="simple">
@@ -1244,13 +1223,7 @@ of the mean pairwise distance between points.</p></li>
 <span class="gp">In [4]: </span><span class="n">hrv_rqa</span> <span class="o">=</span> <span class="n">nk</span><span class="o">.</span><span class="n">hrv_rqa</span><span class="p">(</span><span class="n">peaks</span><span class="p">,</span> <span class="n">sampling_rate</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="savefig/p_hrv_rqa1.png"><img alt="savefig/p_hrv_rqa1.png" src="savefig/p_hrv_rqa1.png" />
-<aside class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">D:\a\NeuroKit\NeuroKit\neurokit2\hrv\hrv_rqa.py:docstring of neurokit2.hrv.hrv_rqa.hrv_rqa</span>, line 15)</p>
-<p>Cannot scale image!
-  Could not get size from &quot;savefig/p_hrv_rqa1.png&quot;:
-  [Errno 2] No such file or directory: 'D:\\a\\NeuroKit\\NeuroKit\\docs\\savefig\\p_hrv_rqa1.png'</p>
-</aside>
+<a class="reference internal image-reference" href="../_images/p_hrv_rqa1.png"><img alt="../_images/p_hrv_rqa1.png" src="../_images/p_hrv_rqa1.png" style="width: 640.0px; height: 480.0px;" />
 </a>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [5]: </span><span class="n">hrv_rqa</span>
 <span class="gh">Out[5]: </span>
@@ -1385,13 +1358,7 @@ with the first peak occurring at sample point 0.</p>
 <span class="go">[1 rows x 25 columns]</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="savefig/p_intervals_to_peaks.png"><img alt="savefig/p_intervals_to_peaks.png" src="savefig/p_intervals_to_peaks.png" />
-<aside class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">D:\a\NeuroKit\NeuroKit\neurokit2\hrv\intervals_to_peaks.py:docstring of neurokit2.hrv.intervals_to_peaks.intervals_to_peaks</span>, line 21)</p>
-<p>Cannot scale image!
-  Could not get size from &quot;savefig/p_intervals_to_peaks.png&quot;:
-  [Errno 2] No such file or directory: 'D:\\a\\NeuroKit\\NeuroKit\\docs\\savefig\\p_intervals_to_peaks.png'</p>
-</aside>
+<a class="reference internal image-reference" href="../_images/p_intervals_to_peaks.png"><img alt="../_images/p_intervals_to_peaks.png" src="../_images/p_intervals_to_peaks.png" style="width: 640.0px; height: 480.0px;" />
 </a>
 <div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="go"># We can also use the timestamps of the intervals</span>
 <span class="gp">In [6]: </span><span class="n">rri</span> <span class="o">=</span> <span class="p">[</span><span class="mi">400</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">700</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="mi">900</span><span class="p">]</span>
@@ -1445,7 +1412,8 @@ with the first peak occurring at sample point 0.</p>
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -1543,8 +1511,8 @@ By <a href="https://dominiquemakowski.github.io/">Dominique Makowski</a> and the
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
 
   <footer class="bd-footer">
   </footer>

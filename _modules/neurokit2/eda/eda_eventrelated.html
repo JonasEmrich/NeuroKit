@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>neurokit2.eda.eda_eventrelated &#8212; NeuroKit2 0.2.9 documentation</title>
+    <title>neurokit2.eda.eda_eventrelated &#8212; NeuroKit2 0.2.10 documentation</title>
   
   
   
@@ -15,30 +15,33 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-
-  
-  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script src="../../../_static/documentation_options.js?v=1b33a64c"></script>
-    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/documentation_options.js?v=1db4c2ab"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../../_static/copybutton.js?v=f281be69"></script>
@@ -49,6 +52,7 @@
     <link rel="search" title="Search" href="../../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.2.10" />
   </head>
   
   
@@ -64,19 +68,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../../../search.html"
       method="get">
@@ -84,7 +77,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -92,8 +84,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -111,7 +103,8 @@
       
         
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -140,22 +133,18 @@
       
     
     
-    <img src="../../../_static/neurokit.png" class="logo__image only-light" alt="NeuroKit2 0.2.9 documentation - Home"/>
-    <script>document.write(`<img src="../../../_static/neurokit.png" class="logo__image only-dark" alt="NeuroKit2 0.2.9 documentation - Home"/>`);</script>
+    <img src="../../../_static/neurokit.png" class="logo__image only-light" alt="NeuroKit2 0.2.10 documentation - Home"/>
+    <img src="../../../_static/neurokit.png" class="logo__image only-dark pst-js-only" alt="NeuroKit2 0.2.10 documentation - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Menu</span></p>
@@ -164,6 +153,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../authors.html">Authors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../cite_us.html">Cite us</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../codebook.html">Codebook</a></li>
+
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../examples/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../examples/bio_eventrelated/bio_eventrelated.html">Event-related Analysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../examples/bio_intervalrelated/bio_intervalrelated.html">Interval-related Analysis</a></li>
@@ -334,24 +325,16 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
+</button>
 
 </div></div>
       
@@ -383,9 +366,11 @@ document.write(`
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="kn">from</span> <span class="nn">..epochs.eventrelated_utils</span> <span class="kn">import</span> <span class="p">(</span><span class="n">_eventrelated_addinfo</span><span class="p">,</span>
-                                         <span class="n">_eventrelated_sanitizeinput</span><span class="p">,</span>
-                                         <span class="n">_eventrelated_sanitizeoutput</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">..epochs.eventrelated_utils</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">_eventrelated_addinfo</span><span class="p">,</span>
+    <span class="n">_eventrelated_sanitizeinput</span><span class="p">,</span>
+    <span class="n">_eventrelated_sanitizeoutput</span><span class="p">,</span>
+<span class="p">)</span>
 <span class="kn">from</span> <span class="nn">..misc</span> <span class="kn">import</span> <span class="n">NeuroKitWarning</span>
 
 
@@ -410,22 +395,18 @@ document.write(`
 <span class="sd">        by the `Label` column (if not present, by the `Index` column). The analyzed features consist</span>
 <span class="sd">        the following:</span>
 
-<span class="sd">        * ``&quot;EDA_SCR&quot;``: indication of whether Skin Conductance Response (SCR) occurs following the event</span>
-<span class="sd">          (1 if an SCR onset is present and 0 if absent) and if so, its corresponding peak amplitude,</span>
-<span class="sd">          time of peak, rise and recovery time. If there is no occurrence of SCR, nans are displayed</span>
-<span class="sd">          for the below features.</span>
-
-<span class="sd">        * ``&quot;EDA_Peak_Amplitude&quot;``: the maximum amplitude of the phasic component of the signal.</span>
-
-<span class="sd">        * ``&quot;SCR_Peak_Amplitude&quot;``: the peak amplitude of the first SCR in each epoch.</span>
-
-<span class="sd">        * ``&quot;SCR_Peak_Amplitude_Time&quot;``: the timepoint of each first SCR peak amplitude.</span>
-
-<span class="sd">        * ``&quot;SCR_RiseTime&quot;``: the risetime of each first SCR i.e., the time it takes for SCR to</span>
-<span class="sd">          reach peak amplitude from onset.</span>
-
-<span class="sd">        * ``&quot;SCR_RecoveryTime&quot;``: the half-recovery time of each first SCR i.e., the time it takes</span>
-<span class="sd">          for SCR to decrease to half amplitude.</span>
+<span class="sd">        .. codebookadd::</span>
+<span class="sd">            EDA_SCR|indication of whether Skin Conductance Response (SCR) occurs following the \</span>
+<span class="sd">                event (1 if an SCR onset is present and 0 if absent) and if so, its corresponding \</span>
+<span class="sd">                peak amplitude, time of peak, rise and recovery time. If there is no occurrence \</span>
+<span class="sd">                of SCR, nans are displayed for the below features.</span>
+<span class="sd">            EDA_Peak_Amplitude|The maximum amplitude of the phasic component of the signal.</span>
+<span class="sd">            SCR_Peak_Amplitude|The peak amplitude of the first SCR in each epoch.</span>
+<span class="sd">            SCR_Peak_Amplitude_Time|The timepoint of each first SCR peak amplitude.</span>
+<span class="sd">            SCR_RiseTime|The risetime of each first SCR i.e., the time it takes for SCR to \</span>
+<span class="sd">                reach peak amplitude from onset.</span>
+<span class="sd">            SCR_RecoveryTime|The half-recovery time of each first SCR i.e., the time it takes \</span>
+<span class="sd">                for SCR to decrease to half amplitude.</span>
 
 <span class="sd">    See Also</span>
 <span class="sd">    --------</span>
@@ -517,7 +498,7 @@ document.write(`
         <span class="n">warn</span><span class="p">(</span>
             <span class="s2">&quot;Input does not have an `EDA_Phasic` column.&quot;</span>
             <span class="s2">&quot; Will skip computation of maximum amplitude of phasic EDA component.&quot;</span><span class="p">,</span>
-            <span class="n">category</span><span class="o">=</span><span class="n">NeuroKitWarning</span>
+            <span class="n">category</span><span class="o">=</span><span class="n">NeuroKitWarning</span><span class="p">,</span>
         <span class="p">)</span>
         <span class="k">return</span> <span class="n">output</span>
 
@@ -532,7 +513,7 @@ document.write(`
         <span class="n">warn</span><span class="p">(</span>
             <span class="s2">&quot;Input does not have an `SCR_Amplitude` column.&quot;</span>
             <span class="s2">&quot; Will skip computation of SCR peak amplitude.&quot;</span><span class="p">,</span>
-            <span class="n">category</span><span class="o">=</span><span class="n">NeuroKitWarning</span>
+            <span class="n">category</span><span class="o">=</span><span class="n">NeuroKitWarning</span><span class="p">,</span>
         <span class="p">)</span>
         <span class="k">return</span> <span class="n">output</span>
 
@@ -540,7 +521,7 @@ document.write(`
         <span class="n">warn</span><span class="p">(</span>
             <span class="s2">&quot;Input does not have an `SCR_RecoveryTime` column.&quot;</span>
             <span class="s2">&quot; Will skip computation of SCR half-recovery times.&quot;</span><span class="p">,</span>
-            <span class="n">category</span><span class="o">=</span><span class="n">NeuroKitWarning</span>
+            <span class="n">category</span><span class="o">=</span><span class="n">NeuroKitWarning</span><span class="p">,</span>
         <span class="p">)</span>
         <span class="k">return</span> <span class="n">output</span>
 
@@ -548,23 +529,23 @@ document.write(`
         <span class="n">warn</span><span class="p">(</span>
             <span class="s2">&quot;Input does not have an `SCR_RiseTime` column.&quot;</span>
             <span class="s2">&quot; Will skip computation of SCR rise times.&quot;</span><span class="p">,</span>
-            <span class="n">category</span><span class="o">=</span><span class="n">NeuroKitWarning</span>
+            <span class="n">category</span><span class="o">=</span><span class="n">NeuroKitWarning</span><span class="p">,</span>
         <span class="p">)</span>
         <span class="k">return</span> <span class="n">output</span>
 
-    <span class="c1"># Peak amplitude and Time of peak</span>
-    <span class="n">first_activation</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">epoch</span><span class="p">[</span><span class="s2">&quot;SCR_Amplitude&quot;</span><span class="p">][</span><span class="n">epoch</span><span class="o">.</span><span class="n">index</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">peak_amplitude</span> <span class="o">=</span> <span class="n">epoch</span><span class="p">[</span><span class="s2">&quot;SCR_Amplitude&quot;</span><span class="p">][</span><span class="n">epoch</span><span class="o">.</span><span class="n">index</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">first_activation</span><span class="p">]</span>
-    <span class="n">output</span><span class="p">[</span><span class="s2">&quot;SCR_Peak_Amplitude&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">peak_amplitude</span>
-    <span class="n">output</span><span class="p">[</span><span class="s2">&quot;SCR_Peak_Amplitude_Time&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">epoch</span><span class="p">[</span><span class="s2">&quot;SCR_Amplitude&quot;</span><span class="p">][</span><span class="n">epoch</span><span class="o">.</span><span class="n">index</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">first_activation</span><span class="p">]</span>
-    <span class="c1"># Rise Time</span>
-    <span class="n">rise_time</span> <span class="o">=</span> <span class="n">epoch</span><span class="p">[</span><span class="s2">&quot;SCR_RiseTime&quot;</span><span class="p">][</span><span class="n">epoch</span><span class="o">.</span><span class="n">index</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">first_activation</span><span class="p">]</span>
-    <span class="n">output</span><span class="p">[</span><span class="s2">&quot;SCR_RiseTime&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">rise_time</span>
+    <span class="n">epoch_postevent</span> <span class="o">=</span> <span class="n">epoch</span><span class="p">[</span><span class="n">epoch</span><span class="o">.</span><span class="n">index</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="c1"># Peak amplitude</span>
+    <span class="n">first_peak</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">epoch_postevent</span><span class="p">[</span><span class="s2">&quot;SCR_Amplitude&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">output</span><span class="p">[</span><span class="s2">&quot;SCR_Peak_Amplitude&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">epoch_postevent</span><span class="p">[</span><span class="s2">&quot;SCR_Amplitude&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">first_peak</span><span class="p">]</span>
+    <span class="c1"># Time of peak (Raw, from epoch onset)</span>
+    <span class="n">output</span><span class="p">[</span><span class="s2">&quot;SCR_Peak_Amplitude_Time&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">epoch_postevent</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">first_peak</span><span class="p">]</span>
+    <span class="c1"># Rise Time (From the onset of the peak)</span>
+    <span class="n">output</span><span class="p">[</span><span class="s2">&quot;SCR_RiseTime&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">epoch_postevent</span><span class="p">[</span><span class="s2">&quot;SCR_RiseTime&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">first_peak</span><span class="p">]</span>
 
-    <span class="c1"># Recovery Time</span>
+    <span class="c1"># Recovery Time (from peak to half recovery time)</span>
     <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">epoch</span><span class="p">[</span><span class="s2">&quot;SCR_RecoveryTime&quot;</span><span class="p">][</span><span class="n">epoch</span><span class="o">.</span><span class="n">index</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">):</span>
-        <span class="n">recovery_time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">epoch</span><span class="p">[</span><span class="s2">&quot;SCR_RecoveryTime&quot;</span><span class="p">][</span><span class="n">epoch</span><span class="o">.</span><span class="n">index</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">output</span><span class="p">[</span><span class="s2">&quot;SCR_RecoveryTime&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">recovery_time</span>
+        <span class="n">recov_t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">epoch_postevent</span><span class="p">[</span><span class="s2">&quot;SCR_RecoveryTime&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">output</span><span class="p">[</span><span class="s2">&quot;SCR_RecoveryTime&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">epoch_postevent</span><span class="p">[</span><span class="s2">&quot;SCR_RecoveryTime&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">recov_t</span><span class="p">]</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">output</span><span class="p">[</span><span class="s2">&quot;SCR_RecoveryTime&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
 
@@ -631,8 +612,8 @@ By <a href="https://dominiquemakowski.github.io/">Dominique Makowski</a> and the
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
 
   <footer class="bd-footer">
   </footer>

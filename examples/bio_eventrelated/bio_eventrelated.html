@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Event-related Analysis &#8212; NeuroKit2 0.2.9 documentation</title>
+    <title>Event-related Analysis &#8212; NeuroKit2 0.2.10 documentation</title>
   
   
   
@@ -16,30 +16,33 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-
-  
-  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script src="../../_static/documentation_options.js?v=1b33a64c"></script>
-    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/documentation_options.js?v=1db4c2ab"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=f281be69"></script>
@@ -52,6 +55,7 @@
     <link rel="prev" title="Examples" href="../index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.2.10" />
   </head>
   
   
@@ -67,19 +71,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../../search.html"
       method="get">
@@ -87,7 +80,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -95,8 +87,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -112,7 +104,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -141,22 +134,18 @@
       
     
     
-    <img src="../../_static/neurokit.png" class="logo__image only-light" alt="NeuroKit2 0.2.9 documentation - Home"/>
-    <script>document.write(`<img src="../../_static/neurokit.png" class="logo__image only-dark" alt="NeuroKit2 0.2.9 documentation - Home"/>`);</script>
+    <img src="../../_static/neurokit.png" class="logo__image only-light" alt="NeuroKit2 0.2.10 documentation - Home"/>
+    <img src="../../_static/neurokit.png" class="logo__image only-dark pst-js-only" alt="NeuroKit2 0.2.10 documentation - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Menu</span></p>
@@ -165,6 +154,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../authors.html">Authors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cite_us.html">Cite us</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../codebook.html">Codebook</a></li>
+
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">Examples</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Event-related Analysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bio_intervalrelated/bio_intervalrelated.html">Interval-related Analysis</a></li>
@@ -400,24 +391,16 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
+</button>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -530,7 +513,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/9d36a4e7989dc9be23e00f43be2bf1236ac552fffcec4463921015427846e247.png" src="../../_images/9d36a4e7989dc9be23e00f43be2bf1236ac552fffcec4463921015427846e247.png" />
+<img alt="../../_images/f1ed439591daae9181271f07e5855aa12500651bd6dd567ad5b594d6a8b67423.png" src="../../_images/f1ed439591daae9181271f07e5855aa12500651bd6dd567ad5b594d6a8b67423.png" />
 </div>
 </div>
 <p>The output of <a class="reference external" href="https://neuropsychology.github.io/NeuroKit/functions/functions_events.html#events-plot">events_plot()</a> shows the corresponding events in the signal, with the blue dashed line representing a Negative event and red dashed line representing a Neutral event.</p>
@@ -557,7 +540,7 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&lt;Axes: &gt;, &lt;Axes: &gt;, &lt;Axes: &gt;, &lt;Axes: &gt;], dtype=object)
 </pre></div>
 </div>
-<img alt="../../_images/71269d365fcee8597bed97be49131f0cd1b9c0afe3c63749b32c0e0bebc0f249.png" src="../../_images/71269d365fcee8597bed97be49131f0cd1b9c0afe3c63749b32c0e0bebc0f249.png" />
+<img alt="../../_images/ed155a5854ccfaf5e9f46b97841a7689e83f8e7c041780f9bbb487dbe0345f1c.png" src="../../_images/ed155a5854ccfaf5e9f46b97841a7689e83f8e7c041780f9bbb487dbe0345f1c.png" />
 </div>
 </div>
 </section>
@@ -586,10 +569,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/974ffe4049acb7050a9e570681993ed476d4ba7bf0654cdfd13e35d1cce068ac.png" src="../../_images/974ffe4049acb7050a9e570681993ed476d4ba7bf0654cdfd13e35d1cce068ac.png" />
-<img alt="../../_images/8fd040283cee5c9e4f00c288f27495b3f4e56b9b09a1f4282c4c851579237504.png" src="../../_images/8fd040283cee5c9e4f00c288f27495b3f4e56b9b09a1f4282c4c851579237504.png" />
-<img alt="../../_images/ca21a2bc30a011415ab3ac7ac065b7fb1e6972cb74e1ee7afe240cf81013f97b.png" src="../../_images/ca21a2bc30a011415ab3ac7ac065b7fb1e6972cb74e1ee7afe240cf81013f97b.png" />
-<img alt="../../_images/827ff4717b8c5a576a40bd06f50a03bcb48382ccb22ab7a6dc3cbcb3abe0bc40.png" src="../../_images/827ff4717b8c5a576a40bd06f50a03bcb48382ccb22ab7a6dc3cbcb3abe0bc40.png" />
+<img alt="../../_images/0335e07638d2517dda5f7ebd176624a87ea01f43b80a54540a2906db750ce9a2.png" src="../../_images/0335e07638d2517dda5f7ebd176624a87ea01f43b80a54540a2906db750ce9a2.png" />
+<img alt="../../_images/924cf154c84145fa21fc9e7cfffaa8423c9a15d1d9ee9eefce0f2080daac4c18.png" src="../../_images/924cf154c84145fa21fc9e7cfffaa8423c9a15d1d9ee9eefce0f2080daac4c18.png" />
+<img alt="../../_images/78ce842a0cc2e46f6040e768bdea5fe360dfd837bfacafc22624b1ba00bb2c86.png" src="../../_images/78ce842a0cc2e46f6040e768bdea5fe360dfd837bfacafc22624b1ba00bb2c86.png" />
+<img alt="../../_images/75eed28facd9142136e25887f3c953faacdd4f3c5b150a4687dc92244566dac1.png" src="../../_images/75eed28facd9142136e25887f3c953faacdd4f3c5b150a4687dc92244566dac1.png" />
 </div>
 </div>
 </section>
@@ -641,11 +624,11 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\runneradmin\AppData\Local\Temp\ipykernel_3808\4246861920.py:12: FutureWarning: The behavior of obj[i:j] with a float-dtype index is deprecated. In a future version, this will be treated as positional instead of label-based. For label-based slicing, use obj.loc[i:j] instead
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\runneradmin\AppData\Local\Temp\ipykernel_5888\4246861920.py:12: FutureWarning: The behavior of obj[i:j] with a float-dtype index is deprecated. In a future version, this will be treated as positional instead of label-based. For label-based slicing, use obj.loc[i:j] instead
   ecg_mean = epoch[&quot;ECG_Rate&quot;][0:4].mean()  # Mean heart rate in the 0-4 seconds
-C:\Users\runneradmin\AppData\Local\Temp\ipykernel_3808\4246861920.py:18: FutureWarning: The behavior of obj[i:j] with a float-dtype index is deprecated. In a future version, this will be treated as positional instead of label-based. For label-based slicing, use obj.loc[i:j] instead
+C:\Users\runneradmin\AppData\Local\Temp\ipykernel_5888\4246861920.py:18: FutureWarning: The behavior of obj[i:j] with a float-dtype index is deprecated. In a future version, this will be treated as positional instead of label-based. For label-based slicing, use obj.loc[i:j] instead
   rsp_rate = epoch[&quot;RSP_Rate&quot;][0:6].mean()  # Longer window for RSP that has a slower dynamic
-C:\Users\runneradmin\AppData\Local\Temp\ipykernel_3808\4246861920.py:24: FutureWarning: The behavior of obj[i:j] with a float-dtype index is deprecated. In a future version, this will be treated as positional instead of label-based. For label-based slicing, use obj.loc[i:j] instead
+C:\Users\runneradmin\AppData\Local\Temp\ipykernel_5888\4246861920.py:24: FutureWarning: The behavior of obj[i:j] with a float-dtype index is deprecated. In a future version, this will be treated as positional instead of label-based. For label-based slicing, use obj.loc[i:j] instead
   scr_max = epoch[&quot;SCR_Amplitude&quot;][0:6].max()  # Maximum SCR peak
 </pre></div>
 </div>
@@ -873,7 +856,7 @@ C:\Users\runneradmin\AppData\Local\Temp\ipykernel_3808\4246861920.py:24: FutureW
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3b34801f2120a42109acff4275ca1f445ee18fb587f17e604e4f61a92996ae9d.png" src="../../_images/3b34801f2120a42109acff4275ca1f445ee18fb587f17e604e4f61a92996ae9d.png" />
+<img alt="../../_images/25ee250b3193423e5f45374c8e95a5c1f308d880a2f861426131abc0c640d8e2.png" src="../../_images/25ee250b3193423e5f45374c8e95a5c1f308d880a2f861426131abc0c640d8e2.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -883,7 +866,7 @@ C:\Users\runneradmin\AppData\Local\Temp\ipykernel_3808\4246861920.py:24: FutureW
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/da0ae8136b9d4c615bca673da52b6402dcdef2839dc89cd0902237353392acc2.png" src="../../_images/da0ae8136b9d4c615bca673da52b6402dcdef2839dc89cd0902237353392acc2.png" />
+<img alt="../../_images/80af38b0e44ed155b93b0e255e2941a1f92b99093ab9da5b8cae80cac9e1153b.png" src="../../_images/80af38b0e44ed155b93b0e255e2941a1f92b99093ab9da5b8cae80cac9e1153b.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -893,7 +876,7 @@ C:\Users\runneradmin\AppData\Local\Temp\ipykernel_3808\4246861920.py:24: FutureW
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/60bfdc9ae472e8c536b8bfe0a781f517e687079b21924d413aafadbe740d4040.png" src="../../_images/60bfdc9ae472e8c536b8bfe0a781f517e687079b21924d413aafadbe740d4040.png" />
+<img alt="../../_images/9905fc2c1b09400b860cad8ed76592deca868382e11e733852c863dce1d4f4e4.png" src="../../_images/9905fc2c1b09400b860cad8ed76592deca868382e11e733852c863dce1d4f4e4.png" />
 </div>
 </div>
 <p><strong>Interpretation</strong>: As we can see, there seems to be a difference between the negative and the neutral pictures. Negative stimuli, as compared to neutral stimuli, were related to a stronger cardiac deceleration (i.e., higher heart rate variability), an accelerated breathing rate, and higher SCR magnitude.</p>
@@ -937,7 +920,8 @@ C:\Users\runneradmin\AppData\Local\Temp\ipykernel_3808\4246861920.py:24: FutureW
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -1001,8 +985,8 @@ By <a href="https://dominiquemakowski.github.io/">Dominique Makowski</a> and the
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
 
   <footer class="bd-footer">
   </footer>

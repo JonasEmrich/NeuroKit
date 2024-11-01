@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>EOG &#8212; NeuroKit2 0.2.9 documentation</title>
+    <title>EOG &#8212; NeuroKit2 0.2.10 documentation</title>
   
   
   
@@ -16,30 +16,33 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-
-  
-  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script src="../_static/documentation_options.js?v=1b33a64c"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/documentation_options.js?v=1db4c2ab"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
@@ -52,6 +55,7 @@
     <link rel="prev" title="EMG" href="emg.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.2.10" />
   </head>
   
   
@@ -67,19 +71,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -87,7 +80,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -95,8 +87,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -112,7 +104,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -141,22 +134,18 @@
       
     
     
-    <img src="../_static/neurokit.png" class="logo__image only-light" alt="NeuroKit2 0.2.9 documentation - Home"/>
-    <script>document.write(`<img src="../_static/neurokit.png" class="logo__image only-dark" alt="NeuroKit2 0.2.9 documentation - Home"/>`);</script>
+    <img src="../_static/neurokit.png" class="logo__image only-light" alt="NeuroKit2 0.2.10 documentation - Home"/>
+    <img src="../_static/neurokit.png" class="logo__image only-dark pst-js-only" alt="NeuroKit2 0.2.10 documentation - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Menu</span></p>
@@ -165,6 +154,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../authors.html">Authors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cite_us.html">Cite us</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../codebook.html">Codebook</a></li>
+
 <li class="toctree-l1 has-children"><a class="reference internal" href="../examples/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../examples/bio_eventrelated/bio_eventrelated.html">Event-related Analysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../examples/bio_intervalrelated/bio_intervalrelated.html">Interval-related Analysis</a></li>
@@ -400,24 +391,16 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
+</button>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -526,10 +509,10 @@ Defaults to 1000.</p></li>
 <dd class="field-even"><p><ul class="simple">
 <li><p><strong>signals</strong> (<em>DataFrame</em>) – A DataFrame of the same length as the <code class="xref py py-func docutils literal notranslate"><span class="pre">eog_signal()</span></code> containing the following columns:</p>
 <ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;EOG_Raw&quot;</span></code>: the raw signal.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;EOG_Clean&quot;</span></code>: the cleaned signal.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;EOG_Blinks&quot;</span></code>: the blinks marked as “1” in a list of zeros.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;EOG_Rate&quot;</span></code>: eye blinks rate interpolated between blinks.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EOG_Raw</span></code>: The raw signal.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EOG_Clean</span></code>: The cleaned signal.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EOG_Blinks</span></code>: The blinks marked as “1” in a list of zeros.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EOG_Rate</span></code>: Eye blink rate interpolated between blinks</p></li>
 </ul>
 </li>
 <li><p><strong>info</strong> (<em>dict</em>) – A dictionary containing the samples at which the eye blinks occur, accessible with the key
@@ -554,13 +537,7 @@ Defaults to 1000.</p></li>
 <span class="gp">In [4]: </span><span class="n">nk</span><span class="o">.</span><span class="n">eog_plot</span><span class="p">(</span><span class="n">eog_signals</span><span class="p">,</span> <span class="n">info</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="savefig/p_eog_process.png"><img alt="savefig/p_eog_process.png" src="savefig/p_eog_process.png" />
-<aside class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">D:\a\NeuroKit\NeuroKit\neurokit2\eog\eog_process.py:docstring of neurokit2.eog.eog_process.eog_process</span>, line 14)</p>
-<p>Cannot scale image!
-  Could not get size from &quot;savefig/p_eog_process.png&quot;:
-  [Errno 2] No such file or directory: 'D:\\a\\NeuroKit\\NeuroKit\\docs\\savefig\\p_eog_process.png'</p>
-</aside>
+<a class="reference internal image-reference" href="../_images/p_eog_process.png"><img alt="../_images/p_eog_process.png" src="../_images/p_eog_process.png" style="width: 640.0px; height: 480.0px;" />
 </a>
 <p class="rubric">References</p>
 <ul class="simple">
@@ -681,13 +658,7 @@ fig.savefig(“myfig.png”)</p></li>
 <span class="gp">In [4]: </span><span class="n">nk</span><span class="o">.</span><span class="n">eog_plot</span><span class="p">(</span><span class="n">eog_signals</span><span class="p">,</span> <span class="n">info</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="savefig/p_eog_plot.png"><img alt="savefig/p_eog_plot.png" src="savefig/p_eog_plot.png" />
-<aside class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">D:\a\NeuroKit\NeuroKit\neurokit2\eog\eog_plot.py:docstring of neurokit2.eog.eog_plot.eog_plot</span>, line 15)</p>
-<p>Cannot scale image!
-  Could not get size from &quot;savefig/p_eog_plot.png&quot;:
-  [Errno 2] No such file or directory: 'D:\\a\\NeuroKit\\NeuroKit\\docs\\savefig\\p_eog_plot.png'</p>
-</aside>
+<a class="reference internal image-reference" href="../_images/p_eog_plot.png"><img alt="../_images/p_eog_plot.png" src="../_images/p_eog_plot.png" style="width: 640.0px; height: 480.0px;" />
 </a>
 </dd></dl>
 
@@ -748,13 +719,7 @@ Defaults to 1000.</p></li>
 <span class="go">       &lt;Axes: &gt;], dtype=object)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="savefig/p_eog_clean.png"><img alt="savefig/p_eog_clean.png" src="savefig/p_eog_clean.png" />
-<aside class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">D:\a\NeuroKit\NeuroKit\neurokit2\eog\eog_clean.py:docstring of neurokit2.eog.eog_clean.eog_clean</span>, line 30)</p>
-<p>Cannot scale image!
-  Could not get size from &quot;savefig/p_eog_clean.png&quot;:
-  [Errno 2] No such file or directory: 'D:\\a\\NeuroKit\\NeuroKit\\docs\\savefig\\p_eog_clean.png'</p>
-</aside>
+<a class="reference internal image-reference" href="../_images/p_eog_clean.png"><img alt="../_images/p_eog_clean.png" src="../_images/p_eog_clean.png" style="width: 640.0px; height: 480.0px;" />
 </a>
 <p class="rubric">References</p>
 <ul class="simple">
@@ -880,13 +845,7 @@ supplied if the method to be used is <code class="docutils literal notranslate">
 <span class="gp">In [5]: </span><span class="n">nk</span><span class="o">.</span><span class="n">events_plot</span><span class="p">(</span><span class="n">info_nk</span><span class="p">[</span><span class="s2">&quot;EOG_Blinks&quot;</span><span class="p">],</span> <span class="n">eog_cleaned</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="savefig/p_eog_peaks1.png"><img alt="savefig/p_eog_peaks1.png" src="savefig/p_eog_peaks1.png" />
-<aside class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">D:\a\NeuroKit\NeuroKit\neurokit2\eog\eog_peaks.py:docstring of neurokit2.eog.eog_peaks.eog_peaks</span>, line 13)</p>
-<p>Cannot scale image!
-  Could not get size from &quot;savefig/p_eog_peaks1.png&quot;:
-  [Errno 2] No such file or directory: 'D:\\a\\NeuroKit\\NeuroKit\\docs\\savefig\\p_eog_peaks1.png'</p>
-</aside>
+<a class="reference internal image-reference" href="../_images/p_eog_peaks1.png"><img alt="../_images/p_eog_peaks1.png" src="../_images/p_eog_peaks1.png" style="width: 640.0px; height: 480.0px;" />
 </a>
 <ul class="simple">
 <li><p><strong>Example 2:</strong> MNE-method</p></li>
@@ -896,13 +855,7 @@ supplied if the method to be used is <code class="docutils literal notranslate">
 <span class="gp">In [7]: </span><span class="n">nk</span><span class="o">.</span><span class="n">events_plot</span><span class="p">(</span><span class="n">info_mne</span><span class="p">[</span><span class="s2">&quot;EOG_Blinks&quot;</span><span class="p">],</span> <span class="n">eog_cleaned</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="savefig/p_eog_peaks2.png"><img alt="savefig/p_eog_peaks2.png" src="savefig/p_eog_peaks2.png" />
-<aside class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">D:\a\NeuroKit\NeuroKit\neurokit2\eog\eog_peaks.py:docstring of neurokit2.eog.eog_peaks.eog_peaks</span>, line 8)</p>
-<p>Cannot scale image!
-  Could not get size from &quot;savefig/p_eog_peaks2.png&quot;:
-  [Errno 2] No such file or directory: 'D:\\a\\NeuroKit\\NeuroKit\\docs\\savefig\\p_eog_peaks2.png'</p>
-</aside>
+<a class="reference internal image-reference" href="../_images/p_eog_peaks2.png"><img alt="../_images/p_eog_peaks2.png" src="../_images/p_eog_peaks2.png" style="width: 640.0px; height: 480.0px;" />
 </a>
 <ul class="simple">
 <li><p><strong>Example 3:</strong> brainstorm method</p></li>
@@ -912,13 +865,7 @@ supplied if the method to be used is <code class="docutils literal notranslate">
 <span class="gp">In [9]: </span><span class="n">nk</span><span class="o">.</span><span class="n">events_plot</span><span class="p">(</span><span class="n">info_brainstorm</span><span class="p">[</span><span class="s2">&quot;EOG_Blinks&quot;</span><span class="p">],</span> <span class="n">eog_cleaned</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="savefig/p_eog_peaks3.png"><img alt="savefig/p_eog_peaks3.png" src="savefig/p_eog_peaks3.png" />
-<aside class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">D:\a\NeuroKit\NeuroKit\neurokit2\eog\eog_peaks.py:docstring of neurokit2.eog.eog_peaks.eog_peaks</span>, line 8)</p>
-<p>Cannot scale image!
-  Could not get size from &quot;savefig/p_eog_peaks3.png&quot;:
-  [Errno 2] No such file or directory: 'D:\\a\\NeuroKit\\NeuroKit\\docs\\savefig\\p_eog_peaks3.png'</p>
-</aside>
+<a class="reference internal image-reference" href="../_images/p_eog_peaks3.png"><img alt="../_images/p_eog_peaks3.png" src="../_images/p_eog_peaks3.png" style="width: 640.0px; height: 480.0px;" />
 </a>
 <ul class="simple">
 <li><p><strong>Example 4:</strong> blinker method</p></li>
@@ -928,13 +875,7 @@ supplied if the method to be used is <code class="docutils literal notranslate">
 <span class="gp">In [11]: </span><span class="n">nk</span><span class="o">.</span><span class="n">events_plot</span><span class="p">(</span><span class="n">info_blinker</span><span class="p">[</span><span class="s2">&quot;EOG_Blinks&quot;</span><span class="p">],</span> <span class="n">eog_cleaned</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="savefig/p_eog_peaks4.png"><img alt="savefig/p_eog_peaks4.png" src="savefig/p_eog_peaks4.png" />
-<aside class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">D:\a\NeuroKit\NeuroKit\neurokit2\eog\eog_peaks.py:docstring of neurokit2.eog.eog_peaks.eog_peaks</span>, line 8)</p>
-<p>Cannot scale image!
-  Could not get size from &quot;savefig/p_eog_peaks4.png&quot;:
-  [Errno 2] No such file or directory: 'D:\\a\\NeuroKit\\NeuroKit\\docs\\savefig\\p_eog_peaks4.png'</p>
-</aside>
+<a class="reference internal image-reference" href="../_images/p_eog_peaks4.png"><img alt="../_images/p_eog_peaks4.png" src="../_images/p_eog_peaks4.png" style="width: 640.0px; height: 480.0px;" />
 </a>
 <p class="rubric">References</p>
 <ul class="simple">
@@ -970,14 +911,14 @@ containing all epochs, usually obtained via <a class="reference internal" href="
 by the <cite>Label</cite> column (if not present, by the <cite>Index</cite> column). The analyzed features
 consist of the following:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;EOG_Rate_Baseline&quot;</span></code>: the baseline EOG rate before stimulus onset.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;EOG_Rate_Max&quot;</span></code>: the maximum EOG rate after stimulus onset.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;EOG_Rate_Min&quot;</span></code>: the minimum EOG rate after stimulus onset.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;EOG_Rate_Mean&quot;</span></code>: the mean EOG rate after stimulus onset.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;EOG_Rate_SD&quot;</span></code>: the standard deviation of the EOG rate after stimulus onset.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;EOG_Rate_Max_Time&quot;</span></code>: the time at which maximum EOG rate occurs.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;EOG_Rate_Min_Time&quot;</span></code>: the time at which minimum EOG rate occurs.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;EOG_Blinks_Presence&quot;</span></code>: marked with ‘1’ if a blink occurs in the epoch, and ‘0’ if not.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EOG_Rate_Baseline</span></code>: The baseline EOG rate before stimulus onset.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EOG_Rate_Max</span></code>: The maximum EOG rate after stimulus onset.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EOG_Rate_Min</span></code>: The minimum EOG rate after stimulus onset.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EOG_Rate_Mean</span></code>: The mean EOG rate after stimulus onset.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EOG_Rate_SD</span></code>: The standard deviation of the EOG rate after stimulus onset.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EOG_Rate_Max_Time</span></code>: The time at which maximum EOG rate occurs.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EOG_Rate_Min_Time</span></code>: The time at which minimum EOG rate occurs.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EOG_Blinks_Presence</span></code>: Marked with ‘1’ if a blink occurs in the epoch, and ‘0’ if not.</p></li>
 </ul>
 </p>
 </dd>
@@ -1032,8 +973,8 @@ sets of separately processed DataFrames.</p>
 <dd class="field-even"><p><p><em>DataFrame</em> – A dataframe containing the analyzed EOG features. The analyzed features consist of the
 following:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;EOG_Rate_Mean&quot;</span></code>: the mean heart rate.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;EOG_Peaks_N&quot;</span></code>: the number of blink peak occurrences.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EOG_Rate_Mean</span></code>: The mean EOG value.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EOG_Peaks_N</span></code>: The number of blink peak occurrences.</p></li>
 </ul>
 </p>
 </dd>
@@ -1127,13 +1068,7 @@ if the method to be used is <code class="docutils literal notranslate"><span cla
 <span class="gp">In [5]: </span><span class="n">nk</span><span class="o">.</span><span class="n">events_plot</span><span class="p">(</span><span class="n">neurokit</span><span class="p">,</span> <span class="n">eog_cleaned</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="savefig/p_eog_findpeaks1.png"><img alt="savefig/p_eog_findpeaks1.png" src="savefig/p_eog_findpeaks1.png" />
-<aside class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">D:\a\NeuroKit\NeuroKit\neurokit2\eog\eog_findpeaks.py:docstring of neurokit2.eog.eog_findpeaks.eog_findpeaks</span>, line 13)</p>
-<p>Cannot scale image!
-  Could not get size from &quot;savefig/p_eog_findpeaks1.png&quot;:
-  [Errno 2] No such file or directory: 'D:\\a\\NeuroKit\\NeuroKit\\docs\\savefig\\p_eog_findpeaks1.png'</p>
-</aside>
+<a class="reference internal image-reference" href="../_images/p_eog_findpeaks1.png"><img alt="../_images/p_eog_findpeaks1.png" src="../_images/p_eog_findpeaks1.png" style="width: 640.0px; height: 480.0px;" />
 </a>
 <ul class="simple">
 <li><p><strong>Example 2:</strong> MNE-method</p></li>
@@ -1143,13 +1078,7 @@ if the method to be used is <code class="docutils literal notranslate"><span cla
 <span class="gp">In [7]: </span><span class="n">nk</span><span class="o">.</span><span class="n">events_plot</span><span class="p">(</span><span class="n">mne</span><span class="p">,</span> <span class="n">eog_cleaned</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="savefig/p_eog_findpeaks2.png"><img alt="savefig/p_eog_findpeaks2.png" src="savefig/p_eog_findpeaks2.png" />
-<aside class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">D:\a\NeuroKit\NeuroKit\neurokit2\eog\eog_findpeaks.py:docstring of neurokit2.eog.eog_findpeaks.eog_findpeaks</span>, line 8)</p>
-<p>Cannot scale image!
-  Could not get size from &quot;savefig/p_eog_findpeaks2.png&quot;:
-  [Errno 2] No such file or directory: 'D:\\a\\NeuroKit\\NeuroKit\\docs\\savefig\\p_eog_findpeaks2.png'</p>
-</aside>
+<a class="reference internal image-reference" href="../_images/p_eog_findpeaks2.png"><img alt="../_images/p_eog_findpeaks2.png" src="../_images/p_eog_findpeaks2.png" style="width: 640.0px; height: 480.0px;" />
 </a>
 <ul class="simple">
 <li><p><strong>Example 3:</strong> brainstorm method</p></li>
@@ -1159,13 +1088,7 @@ if the method to be used is <code class="docutils literal notranslate"><span cla
 <span class="gp">In [9]: </span><span class="n">nk</span><span class="o">.</span><span class="n">events_plot</span><span class="p">(</span><span class="n">brainstorm</span><span class="p">,</span> <span class="n">eog_cleaned</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="savefig/p_eog_findpeaks3.png"><img alt="savefig/p_eog_findpeaks3.png" src="savefig/p_eog_findpeaks3.png" />
-<aside class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">D:\a\NeuroKit\NeuroKit\neurokit2\eog\eog_findpeaks.py:docstring of neurokit2.eog.eog_findpeaks.eog_findpeaks</span>, line 8)</p>
-<p>Cannot scale image!
-  Could not get size from &quot;savefig/p_eog_findpeaks3.png&quot;:
-  [Errno 2] No such file or directory: 'D:\\a\\NeuroKit\\NeuroKit\\docs\\savefig\\p_eog_findpeaks3.png'</p>
-</aside>
+<a class="reference internal image-reference" href="../_images/p_eog_findpeaks3.png"><img alt="../_images/p_eog_findpeaks3.png" src="../_images/p_eog_findpeaks3.png" style="width: 640.0px; height: 480.0px;" />
 </a>
 <ul class="simple">
 <li><p><strong>Example 4:</strong> blinker method</p></li>
@@ -1179,13 +1102,7 @@ if the method to be used is <code class="docutils literal notranslate"><span cla
 <span class="go"># nk.events_plot(jammes2008, eog_cleaned)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="savefig/p_eog_findpeaks4.png"><img alt="savefig/p_eog_findpeaks4.png" src="savefig/p_eog_findpeaks4.png" />
-<aside class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">D:\a\NeuroKit\NeuroKit\neurokit2\eog\eog_findpeaks.py:docstring of neurokit2.eog.eog_findpeaks.eog_findpeaks</span>, line 11)</p>
-<p>Cannot scale image!
-  Could not get size from &quot;savefig/p_eog_findpeaks4.png&quot;:
-  [Errno 2] No such file or directory: 'D:\\a\\NeuroKit\\NeuroKit\\docs\\savefig\\p_eog_findpeaks4.png'</p>
-</aside>
+<a class="reference internal image-reference" href="../_images/p_eog_findpeaks4.png"><img alt="../_images/p_eog_findpeaks4.png" src="../_images/p_eog_findpeaks4.png" style="width: 640.0px; height: 480.0px;" />
 </a>
 </dd></dl>
 
@@ -1267,13 +1184,7 @@ spline interpolation does not ensure monotonicity.</p>
 <span class="gp">   ...: </span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="savefig/p_signal_rate1.png"><img alt="savefig/p_signal_rate1.png" src="savefig/p_signal_rate1.png" />
-<aside class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">D:\a\NeuroKit\NeuroKit\neurokit2\eog\__init__.py:docstring of neurokit2.signal.signal_rate.signal_rate</span>, line 31)</p>
-<p>Cannot scale image!
-  Could not get size from &quot;savefig/p_signal_rate1.png&quot;:
-  [Errno 2] No such file or directory: 'D:\\a\\NeuroKit\\NeuroKit\\docs\\savefig\\p_signal_rate1.png'</p>
-</aside>
+<a class="reference internal image-reference" href="../_images/p_signal_rate1.png"><img alt="../_images/p_signal_rate1.png" src="../_images/p_signal_rate1.png" style="width: 640.0px; height: 480.0px;" />
 </a>
 </dd></dl>
 
@@ -1317,7 +1228,8 @@ spline interpolation does not ensure monotonicity.</p>
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -1423,8 +1335,8 @@ By <a href="https://dominiquemakowski.github.io/">Dominique Makowski</a> and the
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
 
   <footer class="bd-footer">
   </footer>
